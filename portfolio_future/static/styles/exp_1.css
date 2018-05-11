@@ -1,0 +1,13 @@
+table{
+	border:1px solid green;
+	 border-spacing: 20px 40px;
+}
+
+td {
+	border:1px solid green;
+	cursor:crosshair;
+}
+
+caption{
+	   caption-side: bottom;
+}

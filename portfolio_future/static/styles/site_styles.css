@@ -1,0 +1,114 @@
+/*THIS IS A STYLE FILE FOR MY WEBSITE*/
+header{
+font-family: Florence, cursive;
+font-size: medium;
+font-variant: small-caps;
+color: green;
+position:relative;
+height:80px;
+display:block;
+border:1px dotted red;
+}
+
+a{
+color: green;
+/*takes underscores away*/
+text-decoration: none;
+}
+
+a:active {
+   color: brown;
+}
+
+a:hover {
+   color: gray;
+}
+
+.nav--main{
+text-shadow: 1px 1px 4px grey;
+margin-left: 110px;
+display: inline-block;
+float: left;
+}
+
+.nav--main .menu{
+	margin-top: 51px;
+	margin-bottom: 0;
+}
+
+.nav--main .menu__item {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    padding-bottom: 11px;
+}
+
+img{
+	border:0;
+}
+.nav--secondary, .nav--search{
+	width: 280px;
+}
+
+.nav--secondary{
+	top: 8px;
+    right: 0;
+	position: absolute;
+	display: block;
+	
+}
+
+.nav--secondary a{
+font-size: small;
+}
+
+.nav--search{
+	top: 50px;
+	bottom: 0;
+	position: absolute;
+	right: 0;
+	display: block
+}
+.nav--search .menu{
+	float: right;
+}
+
+.nav--search .menu__item{
+	float: left;
+	margin-left: 6px;
+}
+
+.nav--search a{
+	background: #d4d0cc;
+}
+
+.menu{
+/*takes list markers away*/
+list-style-type:none;
+padding: 0;
+margin: 0;
+}
+
+.menu__item{
+	display: inline-block;
+	margin-right: 13px;
+}
+
+.logo{
+	position:absolute;
+	top: 10px;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+
+.header--content{
+	max-width: 1050px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header{
+	position:relative;
+}
