@@ -10,7 +10,6 @@ class Client(threading.Thread):
         super().__init__()
 
     def run(self):
-        threadLock.acquire()
         duration = 10  # here we say that a thread should live and send messages to server for 10 seconds only
         while duration != 0:
             s = socket.socket()
@@ -27,10 +26,6 @@ class Client(threading.Thread):
             print(data)  # displaying what was received from the server
             duration -= 1
             s.close()
-        threadLock.release()
-
-
-threadLock = threading.Lock()
 
 clients = []
 
@@ -48,4 +43,4 @@ clients.append(client5)
 
 for client in clients:
     client.start()
-    client.join()
+
