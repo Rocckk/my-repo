@@ -25,7 +25,6 @@ class Client(threading.Thread):
             data = data.decode()
             print(data)  # displaying what was received from the server
             duration -= 1
-            s.close()
 
 clients = []
 
