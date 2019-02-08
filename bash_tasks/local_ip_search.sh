@@ -12,3 +12,21 @@ ifconfig | egrep -o $PATTERN_IPV4 | sort
 echo "IPv6 addresses are:"
 
 ifconfig |  egrep -o $PATTERN_IPV6
+
+echo "Same task done with awk and loop:"
+
+echo "IPv4:"
+ifconfig | awk -v pattern=$PATTERN_IPV4 '{for (i=1;i<=NF; i++){
+                                            if ($i ~ pattern){
+                                                print $i
+                                            }
+                                         }
+                                         }' | sort
+echo "Ipv6:"
+
+ifconfig | awk -v pattern=$PATTERN_IPV6 '{for (i=1;i<=NF; i++){
+                                            if ($i ~ pattern){
+                                                print $i
+                                            }
+                                         }
+                                         }'
