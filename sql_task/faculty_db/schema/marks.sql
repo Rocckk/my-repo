@@ -6,11 +6,9 @@ create table `marks`(
 `student_id` int unsigned,
 `subject_id` int unsigned,
 foreign key (`subject_id`) references `subjects` (`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`student_id`) references `students` (`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;

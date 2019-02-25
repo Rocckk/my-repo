@@ -9,11 +9,9 @@ create table `groups`(
 `groups_leader` int unsigned,
 primary key (`id`),
 foreign key (`department_id`) references `departments`(`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`curator_is_teacher`) references `teachers`(`id`)
 on delete cascade
-on update cascade 
 )
 default charset utf8
 ;

@@ -1,12 +1,12 @@
-source /usr/home/itymos/my_db/faculty_db/data/popul_auditoriums.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_depts.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_teachers.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_admins.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_teachers_roles.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_subjects.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_students.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_groups.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_department_assistants.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_lessons.sql;
-source /usr/home/itymos/my_db/faculty_db/data/popul_marks.sql;
+source /data/popul_auditoriums.sql;
+source /data/popul_depts.sql;
+source /data/popul_teachers.sql;
+source /data/popul_admins.sql;
+source /data/popul_teachers_roles.sql;
+source /data/popul_subjects.sql;
+source /data/popul_students.sql;
+source /data/popul_groups.sql;
+source /data/popul_department_assistants.sql;
+source /data/popul_lessons.sql;
+source /data/popul_marks.sql;
 

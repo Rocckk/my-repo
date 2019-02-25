@@ -6,11 +6,9 @@ create table `department_assistants` (
 `student_id` int unsigned,
 primary key (`id`),
 foreign key (`department_id`) references `departments` (`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`student_id`) references `students` (`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;

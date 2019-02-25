@@ -9,12 +9,12 @@ create table `students`(
 primary key (`id`),
 foreign key (`groups_id`) references `groups` (`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;
 
 -- now we connect table `groups` with this table to be able to set group leaders
+
 
 alter table `groups`
 add foreign key (`groups_leader`) references students (id); 

@@ -7,7 +7,6 @@ create table `subjects`(
 primary key (`id`),
 foreign key (`teacher_id`) references `teachers` (`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;

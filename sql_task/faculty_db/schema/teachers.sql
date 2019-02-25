@@ -12,7 +12,6 @@ create table `teachers`(
 primary key (`id`),
 foreign key (`department_id`) references `departments`(`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;

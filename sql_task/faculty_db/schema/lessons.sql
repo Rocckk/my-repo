@@ -10,17 +10,13 @@ create table `lessons`(
 `groups_id` int unsigned,
 `seminar_or_lecture` varchar (10),
 foreign key (`auditorium_id`) references `auditoriums`(`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`teacher_id`) references `teachers`(`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`subject_id`) references `subjects`(`id`)
-on delete cascade
-on update cascade,
+on delete cascade,
 foreign key (`groups_id`) references `groups`(`id`)
 on delete cascade
-on update cascade
 )
 default charset utf8
 ;
