@@ -20,7 +20,7 @@ name = 'client_A'
 params = {"name": name}
 
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description='the script should be used with the options only if you are prompted to do that')
 group = parser.add_mutually_exclusive_group()
 group.add_argument('--c', help='a bash command which will be used by this script to generate new tasks', metavar='command')
 group.add_argument('--f', help='choose the file to remove if appropriate task was given', metavar='file')
@@ -39,28 +39,35 @@ def task_handler(task):
     json with the client_name, task name, result of the task, its output and timestamp
     '''
     if task == 'uniqueness counter':
-        with open('test_file.txt', 'r') as f:
-            cont = f.read()
-            list_content = cont.split()
-            uniq_count = 0
-            for i in list_content:
-                if list_content.count(i) == 1:
-                    uniq_count += 1
-            output = 'there are {} unique words in the file'.format(str(uniq_count))
-            resp = {"client":name, "task": task, "result": "success", "output": output, 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
+        try:
+            with open('test_file.txt', 'r') as f:
+                cont = f.read()
+                list_content = cont.split()
+                uniq_count = 0
+                for i in list_content:
+                    if list_content.count(i) == 1:
+                        uniq_count += 1
+                output = 'there are {} unique words in the file'.format(str(uniq_count))
+                resp = {"client":name, "task": task, "result": "success", "output": output, 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
+        except FileNotFoundError as e:
+            resp = {"client": name, "task": task, "result": "failure", "output": e.args[1],
+                    'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
+
+
     elif task == 'file creator':
-        proc = bash.run('touch trash/tfile{}'.format(str(randint(0,100))), shell=True)
+        proc = bash.run('touch tfile{}'.format(str(randint(0,100))), shell=True)
         #if such file exists already - try another name
+        print('p', proc)
         while proc.returncode != 0:
-            proc = bash.run('touch trash/tfile{}'.format(str(randint(0,100))), shell=True)
+            proc = bash.run('trash/tfile{}'.format(str(randint(0,100))), shell=True)
+            print('proc.returncode', proc.returncode)
         output = 'a new file was created'
         resp = {"client":name, "task": task, "result": "success", "output": output, 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
     elif task == 'directory creator':
-        proc = bash.run('mkdir trash/tdir{}'.format(str(randint(0,100))), shell=True)
+        proc = bash.run('mkdir tdir{}'.format(str(randint(0,100))), shell=True)
         #if such dir exists already - try another name
         while proc.returncode != 0:
-            print('something wrong d')
-            proc = bash.run('touch trash/tdir{}'.format(str(randint(0,100))), shell=True)
+            proc = bash.run('mkdir tdir{}'.format(str(randint(0,100))), shell=True)
         output = 'a new dir was created'
         resp = {"client":name, "task": task, "result": "success", "output": output, 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
     elif task == 'file deleter':
@@ -100,7 +107,7 @@ def arg_handler():
             description = desc[start:end]
             # print(description)
             #  inserting new task into db
-            connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+            connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
             cursor = connection.cursor()
             try: 
                 if cursor.execute("insert into `tasks` (`name`, `description`, `status`) values ('{}', '{}', 'free')".format(new_task, description)):
@@ -123,6 +130,7 @@ def arg_handler():
             output = 'a file was not deleted'
             res = 'failure'
         else:
+            print('The file was deleted')
             output = 'a file was deleted'
             res = 'success'
     elif args.d:
@@ -148,7 +156,8 @@ def arg_handler():
             print('the dump was not made successfully')
             res = 'failure'
     resp = json.dumps({"client":name, "task": task, "result": res, "output": output, 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')})
-    p = requests.post('http://127.0.0.1:8081', resp) 
+    print(resp)
+    p = requests.post('http://127.0.0.1:8081', resp)
 
 
 
@@ -161,17 +170,15 @@ try:
             #  if there are free tasks and one was received:
             if r.status_code == 200:
                 task = r.text
+                print("the task you received is {}".format(task))
                 if task in task_list:
                     data = task_handler(task)
-                    print('data:', data)
-                    if data:
-                        p = requests.post('http://127.0.0.1:8081', data)
-                    else:
-                        print('No data from handler')
-                        # arg_handler()
+                    # print('data:', data)
+                    p = requests.post('http://127.0.0.1:8081', data)
+
                 else:
                     print('Unknown task')
-            elif r.status_code == 204:    
+            elif r.status_code == 204:
                 print('no available tasks for now, please try again later')
             elif str(r.status_code).startswith('4'):
                 print('client error')
@@ -185,7 +192,8 @@ try:
         arg_handler()
 
 
-except(requests.exceptions.ConnectionError):
+except requests.exceptions.ConnectionError as e:
+    print(e)
     print('the server seems to be inactive or failed to reply')
 
 
