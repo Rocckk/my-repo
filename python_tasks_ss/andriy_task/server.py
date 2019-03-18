@@ -1,3 +1,6 @@
+'''
+this module is a server which gives client tasks and updates database, detecting which client is free, which task is free and what is the result of the task
+'''
 from http.server import BaseHTTPRequestHandler
 import json
 from socketserver import TCPServer
@@ -8,39 +11,64 @@ from datetime import datetime
 
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        '''
+        this method accepts get requests from clients, checks if a client is free and gives it a task; if there are no available tasks - the server responds with status 204
+        params:
+        GET request objects from clients
+        returns:
+        None
+        '''
         # find out the unique name of the client which should be in url: it cannot be a collection
         client = parse_qs(self.path.lstrip('/?'))
-        if not isinstance(client, (str, int, float)):
-            print('wrong name for the client')
-            self.send_response(400)
-            self.end_headers()
-            return
         client_name = ''.join(client['name'])
         print(client_name)
         #  check if the client exists in the database, if no - he has to be inserted into it  
         connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
         cursor = connection.cursor()
-        # if there are no users in db with such a name
+        # if there are no users in db with such a name - it will be added there
         if cursor.execute('select * from `clients` where name = \'{}\''.format(client_name)) < 1:
-            print('##', cursor.execute('select * from `clients` where name = \'{}\''.format(client_name)))
             cursor.execute('insert into `clients`(`name`, `status`) values(\'{}\', \'free\')'.format(client_name))
             connection.commit()
+        #  checking te status of the client, her has to be free to get the task
+        if cursor.execute("select `status` from `clients` where `name` = '{}'".format(client_name)):
+            status = cursor.fetchone()
+            if status[0] == 'busy':
+                print('this client is busy still')
+                self.send_response(403)
+                self.end_headers()
+                return
         #  checking for free tasks
-        # cursor.execute("select * from `tasks` where status = 'free'")
         if cursor.execute("select * from `tasks` where status = 'free'"):
             free_task = cursor.fetchone()
-            print('fre', free_task)
+            print('free', free_task)
             task_id  = free_task[0]
-            task_name = free_task[1]    
-            #  if task is sent - db should be updated
-            cursor.execute("update `clients` set `status` = 'busy' where `name` = '{}'".format(client_name))
-            print('^', cursor.execute("update `clients` set `status` = 'busy' where `name` = '{}'".format(client_name)))
-            connection.commit()
-            cursor.execute("update `tasks` set `status` = 'taken' where `id` = '{}'".format(task_id))
-            connection.commit()
-            str_time = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-            cursor.execute("insert into `results`(`task_id`, `client_id`, `start_time`) values({}, (select `id` from clients where `name` = '{}'), '{}')".format(task_id, client_name, str_time))
-            connection.commit()
+            task_name = free_task[1]
+            #  if everything is fine: client is free and there are available tasks - update the db
+            if cursor.execute("update `clients` set `status` = 'busy' where `name` = '{}'".format(client_name)):
+                connection.commit()
+            else:
+                print("table clients was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            # check if table tasks was indeed updated:
+            if cursor.execute("update `tasks` set `status` = 'taken' where `id` = '{}'".format(task_id)):
+                connection.commit()
+            else:
+                print("table 'tasks' was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            # check if table results was indeed updated:
+            if cursor.execute("insert into `results`(`task_id`, `client_id`, `start_time`) values({}, "
+                              "(select `id` from clients where `name` = '{}'), '{}')".format(task_id, client_name, datetime.today().strftime('%Y-%m-%d %H:%M:%S'))):
+                connection.commit()
+            else:
+                print("table 'results' was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            #  if there are free tasks and db was updated - response and task is sent:
             self.send_response(200)
             self.end_headers()
             #  turn task into a string and in bytes then
@@ -51,10 +79,9 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_response(204)
             self.end_headers()
         connection.close()
-        print('closed')
-         
-        # self.wfile.write(b"client was created!")
         return
+
+
 
     def do_POST(self):
         '''
@@ -66,23 +93,60 @@ class RequestHandler(BaseHTTPRequestHandler):
         '''
         content_length = int(self.headers['Content-Length'])
         res = self.rfile.read(content_length)
-        res = json.loads(res.decode())        
-        print(res)
-        print(type(res))
+        #  if an object was sent, not None (if clients sends None - it means some additional options are required to process the taks
+        #  successfully)
+        print('res', res)
+        if res:
+            res = json.loads(res.decode())
+        else:
+            print('waiting for options from client')
+            self.send_response(201)
+            self.end_headers()
+            return
         connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
         cursor = connection.cursor()
         #  updating db
-        cursor.execute("update `clients` set `status` = 'free' where `name` = '{}'".format(res['client']))
-        connection.commit()
-        cursor.execute("update `tasks` set `status` = 'free' where `name` = '{}'".format(res['task']))
-        connection.commit()
-        cursor.execute("update `results` set `result` = '{}', `output` = '{}', `end_time` = '{}'".format(res['result'], res['output'], res['time']))
-        connection.commit()
-        self.send_response(201)
-        self.end_headers()
-
-        # self.wfile.write(result.encode())
-        return
+        #  here we have to make sure that a client does not post with options without sending get request first:
+        #  i.e we have to check if that client already has records in `results` table with the same task_id but that record lacks result
+        if cursor.execute("select * from `results` where `client_id` = (select `id` from `clients` where `name` ='{}') and "
+                          "`task_id` = (select `id` from `tasks` where `name` = '{}') and `result` is null".format(res['client'], res['task'])):
+            # if a client has already got some task and posts results
+            if cursor.execute("update `clients` set `status` = 'free' where `name` = '{}'".format(res['client'])):
+                connection.commit()
+            else:
+                print("table 'clients' was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            if cursor.execute("update `tasks` set `status` = 'free' where `name` = '{}'".format(res['task'])):
+                connection.commit()
+            else:
+                print("table 'tasks' was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            if cursor.execute("update `results` set `result` = '{}', `output` = '{}', `end_time` = '{}' where "
+                              "`client_id` = (select `id` from `clients` where `name` ='{}') and "
+                          "`task_id` = (select `id` from `tasks` where `name` = '{}') and `result` "
+                              "is null".format(res['result'], res['output'], res['time'], res['client'], res['task'])):
+                connection.commit()
+            else:
+                print("table 'results' was not successfully updated")
+                self.send_response(501)
+                self.end_headers()
+                return
+            self.send_response(201)
+            self.end_headers()
+            # self.wfile.write(result.encode())
+            return
+        else:
+            res = 'client tries to post task which it has not yet taken'
+            print(res)
+            reply = 'the server refuses POST request because of illegal client\'s action: ' + res
+            self.send_response(403)
+            self.end_headers()
+            self.wfile.write(reply.encode())
+            return
 
 
 port = 8081
