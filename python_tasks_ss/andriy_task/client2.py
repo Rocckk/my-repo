@@ -9,11 +9,14 @@ import subprocess as bash
 from random import randint
 import argparse
 import pymysql
-from time import sleep
-import task_handler
 
 
+task_list = ['uniqueness counter', 'file creator', 'directory creator', 'file deleter', 'dir deleter', 'dump maker', 'task creator']
 
+#  unique name of the client, always the same, several clients with the same name are not allowed! the name cannot be a collection, only a string, int, float. 
+name = 'client_B'
+
+params = {"name": name}
 
 
 parser = argparse.ArgumentParser(description='the script should be used with the options only if you are prompted to do that')
@@ -26,7 +29,6 @@ args = parser.parse_args()
 
 
  #  handling task
-"""
 def task_handler(task):
     '''
     the function handles the tasks which are received from the server and replies with the output and result
@@ -50,7 +52,7 @@ def task_handler(task):
             resp = {"client": name, "task": task, "result": "failure", "output": e.args[1],
                     'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
 
-    #   CHECK FOR RIGHTS TO CREATE/DELETE SHOULD BE DONE!
+
     elif task == 'file creator':
         proc = bash.run('touch tfile{}'.format(str(randint(0,100))), shell=True)
         #if such file exists already - try another name
@@ -80,7 +82,7 @@ def task_handler(task):
         print('please run this client again with some simple bash command (without any options, the command must be suitable for using by itself) as its argument after \'-- c\' and new tasks will be created using this command and added to the database, e.g.:\n python client.py --c date')
         return
     return json.dumps(resp)
-"""
+
 
 def arg_handler():
     if args.c:
@@ -172,27 +174,21 @@ def arg_handler():
 
 
 
-#       REDO WITH 'DONE' STATUS OF THE TASK: THIS TASK CAN'T BE DONE ANYMORE
 
-
-if __name__ == "__main__":
-    task_list = ['uniqueness counter', 'file creator', 'directory creator', 'file deleter', 'dir deleter', 'dump maker', 'task creator']
-    #  unique name of the client, always the same, several clients with the same name are not allowed! the name cannot be a collection, only a string, int, float. 
-    name = 'client_A'
-    params = {"name": name}
-    #  ask for task and provide client name for identification
-    while True:
-        try:
+#  ask for task and provide client name for identification
+try:
+    #  if arguments were not provided to the script
+    if not args.c and not args.f and  not args.d and not args.r:
+        if not isinstance(params['name'], (dict, list, set, tuple)):
             r = requests.get('http://127.0.0.1:8081', params=params)
+            #  if there are free tasks and one was received:
             if r.status_code == 200:
                 task = r.text
                 print("the task you received is {}".format(task))
                 if task in task_list:
-                    handler = task_handler.TaskDoer(task, name)
-                    handler.do()
-                    print('data:', data)
-                    #  p = requests.post('http://127.0.0.1:8081', data)
-                   
+                    data = task_handler(task)
+                    # print('data:', data)
+                    p = requests.post('http://127.0.0.1:8081', data)
                 else:
                     print('Unknown task')
                     data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
@@ -203,43 +199,17 @@ if __name__ == "__main__":
                 print('client error')
             elif str(r.status_code).startswith('5'):
                 print('server error occurred')
-            '''
-            #  if arguments were not provided to the script
-            if not args.c and not args.f and  not args.d and not args.r:
-                if not isinstance(params['name'], (dict, list, set, tuple)):
-                    r = requests.get('http://127.0.0.1:8081', params=params)
-                    #  if there are free tasks and one was received:
-                    if r.status_code == 200:
-                        task = r.text
-                        print("the task you received is {}".format(task))
-                        if task in task_list:
-                            data = task_handler(task)
-                            # print('data:', data)
-                            p = requests.post('http://127.0.0.1:8081', data)
-                        else:
-                            print('Unknown task')
-                            data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
-                            p = requests.post('http://127.0.0.1:8081',  data)
-                    elif r.status_code == 204:
-                        print('no available tasks for now, please try again later')
-                    elif str(r.status_code).startswith('4'):
-                        print('client error')
-                    elif str(r.status_code).startswith('5'):
-                        print('server error occurred')
-                else:
-                    print('invalid client name!')
+        else:
+            print('invalid client name!')
 
-            #  if there are arguments:
-            else:
-                arg_handler()
-            '''
-             
-        except requests.exceptions.ConnectionError as e:
-            print(e)
-            print('the server seems to be inactive or failed to reply')
-        finally:
-            sleep(5)
+#  if there are arguments:
+    else:
+        arg_handler()
 
+
+except requests.exceptions.ConnectionError as e:
+    print(e)
+    print('the server seems to be inactive or failed to reply')
 
 
 
@@ -248,4 +218,4 @@ if __name__ == "__main__":
 
 
 
- 
+  

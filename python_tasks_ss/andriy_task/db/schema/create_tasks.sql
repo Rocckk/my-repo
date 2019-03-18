@@ -5,7 +5,8 @@ create table `tasks`(
 `name` varchar(100),
 `description` text,
 `status` varchar(50),
-check(`status` in('taken', 'free'))
+check(`status` in('taken', 'free', 'done')),
+unique(`name`)
 )
 engine InnoDB
 default charset utf8
