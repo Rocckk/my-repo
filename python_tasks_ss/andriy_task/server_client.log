@@ -2442,3 +2442,109 @@
 2019-03-18 20:32:03,862: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
 2019-03-18 20:32:03,862: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
 2019-03-18 20:32:03,864: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 21:15:47,502: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:15:47,502: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:15:47,508: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 21:15:47,509: INFO -- logged by: server.py -- the client client_A took a task custom locale  task
+2019-03-18 21:15:47,633: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 21:15:47,712: INFO -- logged by: server.py -- the task custom locale  task is now taken  and table 'tasks' was successfully updated
+2019-03-18 21:15:47,946: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 21:15:47,947: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 21:15:53,107: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:15:53,107: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:15:53,112: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 21:15:58,122: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:15:58,122: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:15:58,127: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 21:47:27,197: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:47:27,197: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:47:27,200: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 21:48:28,362: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:48:28,362: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:48:28,364: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 21:48:28,364: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-18 21:48:28,513: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 21:48:28,592: INFO -- logged by: server.py -- the task uniqueness counter is now taken  and table 'tasks' was successfully updated
+2019-03-18 21:48:28,689: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 21:48:28,689: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 21:50:10,506: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:50:10,507: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:50:10,508: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 21:50:10,509: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-18 21:50:10,598: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 21:50:10,678: INFO -- logged by: server.py -- the task uniqueness counter is now taken  and table 'tasks' was successfully updated
+2019-03-18 21:50:10,746: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 21:50:10,746: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 21:50:15,857: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 21:50:15,857: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 21:50:15,859: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 22:11:09,841: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:11:09,841: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:11:09,843: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 22:11:09,843: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-18 22:11:09,999: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 22:11:10,084: INFO -- logged by: server.py -- the task file deleter is now taken  and table 'tasks' was successfully updated
+2019-03-18 22:11:10,152: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 22:11:10,153: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 22:12:46,001: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:12:46,002: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:12:46,003: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 22:12:46,004: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-18 22:12:46,098: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 22:12:46,177: INFO -- logged by: server.py -- the task file deleter is now taken  and table 'tasks' was successfully updated
+2019-03-18 22:12:46,256: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 22:12:46,256: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 22:12:51,292: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:12:51,292: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:12:51,297: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 22:17:29,810: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:17:29,810: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:17:29,812: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 22:17:29,812: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-18 22:17:29,936: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 22:17:30,015: INFO -- logged by: server.py -- the task file deleter is now taken  and table 'tasks' was successfully updated
+2019-03-18 22:17:30,165: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 22:17:30,166: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 22:34:54,658: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:34:54,658: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:34:54,660: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 22:34:54,660: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-18 22:34:54,741: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 22:34:54,809: INFO -- logged by: server.py -- the task file deleter is now taken  and table 'tasks' was successfully updated
+2019-03-18 22:34:54,877: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 22:34:54,878: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 22:34:59,914: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:34:59,915: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:34:59,921: WARNING -- logged by: server.py -- the client client_A is still busy and is not allowed to take any tasks
+2019-03-18 22:51:47,521: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 22:51:47,522: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 22:51:47,523: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 22:51:47,524: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-18 22:51:48,123: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 22:51:48,400: INFO -- logged by: server.py -- the task dump maker is now taken  and table 'tasks' was successfully updated
+2019-03-18 22:51:48,468: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 22:51:48,468: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 23:06:05,014: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 23:06:05,015: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 23:06:05,016: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 23:06:05,016: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-18 23:06:05,184: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 23:06:05,263: INFO -- logged by: server.py -- the task dump maker is now taken  and table 'tasks' was successfully updated
+2019-03-18 23:06:05,331: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 23:06:05,332: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 23:06:10,949: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 23:06:10,949: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 23:06:10,951: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 23:06:10,951: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-18 23:06:11,096: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 23:06:11,180: INFO -- logged by: server.py -- the task dump maker is now taken  and table 'tasks' was successfully updated
+2019-03-18 23:06:11,248: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 23:06:11,249: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-18 23:06:16,477: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-18 23:06:16,477: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-18 23:06:16,479: INFO -- logged by: server.py -- the client client_A is free and ready to take a task
+2019-03-18 23:06:16,479: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-18 23:06:16,610: INFO -- logged by: server.py -- the client client_A became busy and table 'clients' was successfully updated
+2019-03-18 23:06:16,678: INFO -- logged by: server.py -- the task dump maker is now taken  and table 'tasks' was successfully updated
+2019-03-18 23:06:16,746: INFO -- logged by: server.py -- the table 'results' was successfully updated
+2019-03-18 23:06:16,746: INFO -- logged by: server.py -- the GET request from client client_A was successful

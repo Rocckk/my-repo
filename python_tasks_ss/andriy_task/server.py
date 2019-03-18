@@ -25,7 +25,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         client_name = ''.join(client['name'])
         logging.info('the name of the client which requested a task is {}'.format(client_name))
         #  check if the client exists in the database, if no - he has to be inserted into it  
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         # if there are no users in db with such a name - it will be added there
         if cursor.execute('select * from `clients` where name = \'{}\''.format(client_name)) < 1:
@@ -138,7 +138,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_response(201)
             self.end_headers()
             return
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         #  updating db
         #  here we have to make sure that a client does not post with options without sending get request first:

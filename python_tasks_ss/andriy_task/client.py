@@ -107,7 +107,7 @@ def arg_handler():
             description = desc[start:end]
             # print(description)
             #  inserting new task into db
-            connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+            connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
             cursor = connection.cursor()
             try: 
                 if cursor.execute("insert into `tasks` (`name`, `description`, `status`) values ('{}', '{}', 'free')".format(new_task, description)):
@@ -189,14 +189,12 @@ if __name__ == "__main__":
                 print("the task you received is {}".format(task))
                 if task in task_list:
                     handler = task_handler.TaskDoer(task, name)
-                    handler.do()
+                    data = handler.do()
                     print('data:', data)
-                    #  p = requests.post('http://127.0.0.1:8081', data)
-                   
                 else:
                     print('Unknown task')
                     data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
-                    p = requests.post('http://127.0.0.1:8081',  data)
+                p = requests.post('http://127.0.0.1:8081',  data)
             elif r.status_code == 204:
                 print('no available tasks for now, please try again later')
             elif str(r.status_code).startswith('4'):
