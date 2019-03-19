@@ -13,7 +13,7 @@ class DBUpdater:
         self.result = res
     def insert_n_task(self):
         #  inserting new task into db
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         try: 
             if cursor.execute("insert into `tasks` (`name`, `description`, `status`) values ('{}', '{}', 'free')".format(self.task_name, self.desc)):
@@ -39,7 +39,7 @@ class DBUpdater:
     def check_presence(self):
         print("##", self.client_name)
         #  check if the client exists in the database, if yes - true
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         if cursor.execute('select * from `clients` where name = \'{}\''.format(self.client_name)) < 1:
             cursor.close()
@@ -50,7 +50,7 @@ class DBUpdater:
             connection.close()
             return True
     def insert_n_client(self):
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         if cursor.execute('insert into `clients`(`name`, `status`) values(\'{}\', \'free\')'.format(self.client_name)):
             connection.commit()
@@ -62,7 +62,7 @@ class DBUpdater:
             connection.close()  
             return False
     def check_free_tasks(self):
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         if cursor.execute("select * from `tasks` where status = 'free'"):
             free_task = cursor.fetchone()
@@ -76,7 +76,7 @@ class DBUpdater:
             connection.close()
             return
     def update_all_get(self, task_name, task_id):
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         if cursor.execute("update `clients` set `status` = 'busy' where `name` = '{}'".format(self.client_name)):
             if cursor.execute("update `tasks` set `status` = 'taken' where `id` = '{}'".format(task_id)):
@@ -89,11 +89,11 @@ class DBUpdater:
         connection.close()
         return False
     def update_all_post(self):
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         if cursor.execute("update `clients` set `status` = 'free' where `name` = '{}'".format(self.result['client'])):
             if cursor.execute("update `tasks` set `status` = 'done' where `name` = '{}'".format(self.result['task'])):
-                if cursor.execute("update `results` set `result` = '{}', `output` = '{}', `end_time` = '{}' where `client_id` = (select `id` from `clients` where `name` ='{}') and "
+                if cursor.execute("update `results` set `result` = '{}', `output` = \"{}\", `end_time` = '{}' where `client_id` = (select `id` from `clients` where `name` ='{}') and "
                           "`task_id` = (select `id` from `tasks` where `name` = '{}') and `result` is null".format(self.result['result'], self.result['output'], self.result['time'], self.result['client'], self.result['task'])):
                     connection.commit()
                     cursor.close()

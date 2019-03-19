@@ -108,7 +108,7 @@ class TaskDoer:
             rand = randint(0, len(list_cont)-1)
             comm = list_cont[rand]
             print('&&', comm)
-            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
+            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh', ]
             #  if the command chosen requires input
             if comm in comms_w_input:                                                                    
                 while comm in comms_w_input:

@@ -192,3 +192,290 @@
 2019-03-19 20:42:07,927: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
 2019-03-19 20:42:07,927: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
 2019-03-19 20:42:07,930: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 21:33:38,514: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:33:38,514: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:33:38,552: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:33:38,553: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:33:43,564: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:33:43,565: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:33:43,575: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:33:43,579: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:33:48,591: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:33:48,591: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:33:48,594: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:33:48,596: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:33:53,610: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:33:53,610: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:33:53,621: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:33:53,625: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:33:58,638: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:33:58,638: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:33:58,647: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:33:58,652: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:03,664: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:03,664: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:03,671: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:03,674: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:08,687: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:08,687: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:08,695: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:08,699: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:13,711: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:13,712: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:13,719: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:13,722: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:18,737: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:18,737: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:18,747: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:18,751: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:23,764: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:23,764: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:23,774: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:23,778: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:34:28,792: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:34:28,792: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:34:28,801: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:34:28,805: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:39:23,501: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:23,501: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:23,504: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-19 21:39:23,700: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:23,701: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:23,814: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:23,815: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:28,825: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:28,825: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:28,832: INFO -- logged by: server.py -- the client client_A took a task file creator
+2019-03-19 21:39:29,064: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:29,064: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:29,266: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:29,267: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:34,280: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:34,281: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:34,289: INFO -- logged by: server.py -- the client client_A took a task directory creator
+2019-03-19 21:39:34,499: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:34,499: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:34,602: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:34,602: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:39,612: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:39,612: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:39,622: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-19 21:39:39,840: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:39,841: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:39,944: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:39,945: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:44,956: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:44,956: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:44,964: INFO -- logged by: server.py -- the client client_A took a task dir deleter
+2019-03-19 21:39:45,177: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:45,178: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:45,357: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:45,357: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:50,371: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:50,371: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:50,381: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-19 21:39:50,595: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:50,595: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:50,919: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:50,919: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:39:55,931: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:39:55,931: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:39:55,940: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:39:56,152: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:56,152: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:39:56,266: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:39:56,266: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:40:01,278: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:40:01,278: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:40:01,286: INFO -- logged by: server.py -- the client client_A took a task custom locale  task
+2019-03-19 21:40:01,473: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:40:01,473: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:40:07,133: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:40:07,133: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:40:07,135: INFO -- logged by: server.py -- the client client_A took a task custom locale  task
+2019-03-19 21:40:07,136: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:40:12,147: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:40:12,148: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:40:12,156: INFO -- logged by: server.py -- the client client_A took a task custom locale  task
+2019-03-19 21:40:12,160: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:43:00,337: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:00,337: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:00,340: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-19 21:43:00,731: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:00,731: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:00,832: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:00,832: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:43:05,838: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:05,838: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:05,842: INFO -- logged by: server.py -- the client client_A took a task file creator
+2019-03-19 21:43:06,016: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:06,016: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:06,135: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:06,135: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:43:11,145: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:11,146: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:11,154: INFO -- logged by: server.py -- the client client_A took a task directory creator
+2019-03-19 21:43:11,440: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:11,441: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:11,542: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:11,542: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:43:16,555: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:16,556: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:16,563: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-19 21:43:16,769: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:16,770: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:16,872: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:16,872: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:43:21,883: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:21,884: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:21,892: INFO -- logged by: server.py -- the client client_A took a task dir deleter
+2019-03-19 21:43:22,012: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:22,012: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:22,142: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:22,143: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 21:43:27,156: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:27,156: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:27,159: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-19 21:43:27,370: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 21:43:27,370: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 21:43:32,495: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:32,495: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:32,504: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:43:32,507: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:43:37,521: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:37,521: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:37,525: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:43:37,526: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:43:42,539: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:42,539: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:42,548: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:43:42,552: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 21:43:47,560: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 21:43:47,561: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 21:43:47,624: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 21:43:47,627: WARNING -- logged by: server.py -- the db was not successfully updated, it remained in the previous state
+2019-03-19 22:15:06,463: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:06,464: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:06,467: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-19 22:15:06,714: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:06,715: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:15:06,894: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:06,894: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:15:11,905: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:11,905: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:11,914: INFO -- logged by: server.py -- the client client_A took a task task creator
+2019-03-19 22:15:12,132: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:12,133: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:15:12,235: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:12,236: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:15:17,247: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:17,247: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:17,255: INFO -- logged by: server.py -- the client client_A took a task custom locale  task
+2019-03-19 22:15:17,481: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:17,481: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:15:17,582: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:15:17,582: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:15:22,594: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:22,594: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:22,597: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:15:27,605: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:27,606: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:27,613: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:15:32,624: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:15:32,625: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:15:32,630: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:24:01,679: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:24:01,679: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:24:01,683: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:24:06,691: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:24:06,692: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:24:06,698: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:24:11,709: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:24:11,710: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:24:11,716: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:24:16,727: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:24:16,727: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:24:16,736: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:24:21,749: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:24:21,749: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:24:21,756: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client client_A was successful
+2019-03-19 22:25:19,625: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:19,625: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:19,627: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-19 22:25:19,811: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:19,812: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:25:19,925: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:19,925: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:25:24,938: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:24,939: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:24,947: INFO -- logged by: server.py -- the client client_A took a task file creator
+2019-03-19 22:25:25,174: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:25,174: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:25:25,276: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:25,277: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:25:30,287: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:30,287: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:30,296: INFO -- logged by: server.py -- the client client_A took a task directory creator
+2019-03-19 22:25:30,451: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:30,452: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:25:30,554: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:30,554: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:25:35,562: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:35,579: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:35,585: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-19 22:25:35,825: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:35,825: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:25:35,938: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:35,938: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:25:40,946: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:40,946: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:40,952: INFO -- logged by: server.py -- the client client_A took a task dir deleter
+2019-03-19 22:25:41,182: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:41,182: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:25:41,300: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:41,300: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:25:46,311: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:25:46,312: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:25:46,318: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-19 22:25:46,735: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:25:46,736: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:32:59,918: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:32:59,918: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:32:59,920: INFO -- logged by: server.py -- the client client_A took a task uniqueness counter
+2019-03-19 22:33:00,209: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:00,209: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:33:00,324: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:00,325: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:33:05,334: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:33:05,334: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:33:05,342: INFO -- logged by: server.py -- the client client_A took a task file creator
+2019-03-19 22:33:08,680: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:08,681: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:33:10,361: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:10,361: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:33:15,376: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:33:15,376: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:33:15,384: INFO -- logged by: server.py -- the client client_A took a task directory creator
+2019-03-19 22:33:16,045: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:16,045: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:33:16,168: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:16,168: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:33:21,182: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:33:21,182: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:33:21,188: INFO -- logged by: server.py -- the client client_A took a task file deleter
+2019-03-19 22:33:22,522: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:22,523: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:33:22,625: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:22,625: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:33:27,636: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:33:27,636: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:33:27,643: INFO -- logged by: server.py -- the client client_A took a task dir deleter
+2019-03-19 22:33:28,184: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:28,184: INFO -- logged by: server.py -- the GET request from client client_A was successful
+2019-03-19 22:33:28,925: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:28,925: INFO -- logged by: server.py -- the POST request from client client_A was successful
+2019-03-19 22:33:33,941: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
+2019-03-19 22:33:33,941: INFO -- logged by: server.py -- the name of the client which requested a task is client_A
+2019-03-19 22:33:33,949: INFO -- logged by: server.py -- the client client_A took a task dump maker
+2019-03-19 22:33:34,628: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-19 22:33:34,628: INFO -- logged by: server.py -- the GET request from client client_A was successful
