@@ -7,6 +7,7 @@ from datetime import datetime
 import subprocess as bash
 from random import randint
 import json
+from db_handler import DBUpdater
 
 
 class TaskDoer:
@@ -89,9 +90,9 @@ class TaskDoer:
             lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
             cont = lst.stdout.decode()
             list_cont = cont.split()
-            print(list_cont)
             rand = randint(0, len(list_cont))
             comm = list_cont[rand]
+            print('((', comm)
             proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE)
             output = proc.stdout.decode()
             if output:
@@ -100,15 +101,43 @@ class TaskDoer:
             else:
                 print('the dump was not made successfully')
                 res = 'failure'
-        elif task == 'task creator':
-            pass
+        elif self.task == 'task creator':
+            lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
+            cont = lst.stdout.decode()
+            list_cont = cont.split()                      
+            rand = randint(0, len(list_cont)-1)
+            comm = list_cont[rand]
+            print('&&', comm)
+            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
+            #  if the command chosen requires input
+            if comm in comms_w_input:                                                                    
+                while comm in comms_w_input:
+                    rand = randint(0, len(list_cont))
+                    comm = list_cont[rand]
+            proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE)
+            #  if there was an error during program execution - it's not suitable
+            if proc.returncode != 0:
+                print ('this command cannot be used without options and arguments, please choose a different command')
+                res = 'failure'
+                output = 'not created'
+            else:
+                #  if there was no error - get the info on this command and create a new task with it
+                proc_data = bash.run("whatis {} | sed '2,$ d'".format(comm), shell=True, stdout=bash.PIPE)
+                desc = proc_data.stdout.decode()
+                stop = desc.find('(')
+                new_task = 'custom '+ desc[:stop] + ' task'
+                start = desc.find('- ') + 2
+                end = desc.find('\n')
+                description = desc[start:end]
+                print('***', description)
+                # if the description of the task and its name are ready
+                if new_task and description:
+                    obj = DBUpdater(new_task, description)
+                    res, output = obj.insert_n_task()
+
         resp = {"client": self.name, "task": self.task, "result": res, "output": output,
                 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
         print('r', resp)
+             
         return json.dumps(resp)
 
-
-
-
-
-  

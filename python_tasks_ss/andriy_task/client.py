@@ -3,14 +3,11 @@ this module is the HTTP client which communicates with server: asks for availabl
 '''
 
 import requests
-from datetime import datetime
 import json
-import subprocess as bash
-from random import randint
 import argparse
-import pymysql
 from time import sleep
-import task_handler
+from datetime import datetime
+from task_handler import TaskDoer
 
 
 
@@ -24,9 +21,8 @@ group.add_argument('--d', help='choose the directory to remove if appropriate ta
 group.add_argument('--r', help='create a dump of a command', nargs='+', metavar=('command', 'option'))
 args = parser.parse_args()
 
-
- #  handling task
 """
+ #  handling task
 def task_handler(task):
     '''
     the function handles the tasks which are received from the server and replies with the output and result
@@ -72,7 +68,7 @@ def task_handler(task):
         return
     elif task == 'dir deleter':
         print('please run this script again with option --d <direcroty_to_delete> and the <directory_to_delete> will be deleted')
-        return                                                      
+        return
     elif task == 'dump maker':
         print('please run this script again with option --r <command> and provide a shell <command> (it can be with options as well) the output of which will be dumped. The command should be written in parentheses! Example:\npython client.py --r \'ls -a\'')
         return
@@ -80,7 +76,6 @@ def task_handler(task):
         print('please run this client again with some simple bash command (without any options, the command must be suitable for using by itself) as its argument after \'-- c\' and new tasks will be created using this command and added to the database, e.g.:\n python client.py --c date')
         return
     return json.dumps(resp)
-"""
 
 def arg_handler():
     if args.c:
@@ -171,6 +166,7 @@ def arg_handler():
         print('but ' + p.text)
 
 
+"""
 
 #       REDO WITH 'DONE' STATUS OF THE TASK: THIS TASK CAN'T BE DONE ANYMORE
 
@@ -183,25 +179,25 @@ if __name__ == "__main__":
     #  ask for task and provide client name for identification
     while True:
         try:
-            r = requests.get('http://127.0.0.1:8081', params=params)
+            r = requests.get('http://127.0.0.1:8080', params=params)
             if r.status_code == 200:
                 task = r.text
                 print("the task you received is {}".format(task))
                 if task in task_list:
-                    handler = task_handler.TaskDoer(task, name)
+                    handler = TaskDoer(task, name)
                     data = handler.do()
                     print('data:', data)
                 else:
                     print('Unknown task')
                     data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
-                p = requests.post('http://127.0.0.1:8081',  data)
+                p = requests.post('http://127.0.0.1:8080',  data)
             elif r.status_code == 204:
                 print('no available tasks for now, please try again later')
             elif str(r.status_code).startswith('4'):
                 print('client error')
             elif str(r.status_code).startswith('5'):
                 print('server error occurred')
-            '''
+            """
             #  if arguments were not provided to the script
             if not args.c and not args.f and  not args.d and not args.r:
                 if not isinstance(params['name'], (dict, list, set, tuple)):
@@ -230,8 +226,7 @@ if __name__ == "__main__":
             #  if there are arguments:
             else:
                 arg_handler()
-            '''
-             
+            """ 
         except requests.exceptions.ConnectionError as e:
             print(e)
             print('the server seems to be inactive or failed to reply')
@@ -239,11 +234,3 @@ if __name__ == "__main__":
             sleep(5)
 
 
-
-
-
- 
-
-
-
- 
