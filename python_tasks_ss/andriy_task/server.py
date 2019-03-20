@@ -1,10 +1,10 @@
- '''
+'''
 this module is a server which gives client tasks and updates database, detecting which client is free, which task is free and what is the result of the task
 '''
 from http.server import BaseHTTPRequestHandler
 import json
 from socketserver import TCPServer
-from urllib.parse import parse_qs
+#  from urllib.parse import parse_qs
 import logging
 from db_handler import DBUpdater
 
@@ -20,6 +20,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         None
         '''
         logging.info("the client called the server's GET method, so it's asking for task")
+        """
         # find out the unique name of the client which should be in url: it cannot be a collection
         client = parse_qs(self.path.lstrip('/?'))
         client_name = ''.join(client['name'])
@@ -38,29 +39,38 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.send_response(500)
                 self.end_headers()
                 return
+        """
+        handler = DBUpdater()
         #  checking for free tasks
         # if there are no available tasks - handler returns None
         try:
+            """
             task_name, task_id = handler.check_free_tasks()
-            if task_name:
-                logging.info('the client {} took a task {}'.format(client_name, task_name))
-                #  if everything is fine: there are available tasks - update the db
-                if not handler.update_all_get(task_name, task_id):
-                    logging.warning('the db was not successfully updated, it remained in the previous state')
-                    self.send_response(501)
-                    self.end_headers()
-                    return
-                logging.info('the db was successfully updated')
-                logging.info('the GET request from client {} was successful'.format(client_name))
-                self.send_response(200)
-                self.end_headers()
-                self.wfile.write(task_name.encode())
+            """
+            task_id, job_type, configs = handler.check_free_tasks()
         except TypeError:
             #  if there are no available tasks - send empty response
-            logging.info('all the tasks are currently busy or already done, but the GET request from client {} was successful'.format(client_name))
+            logging.info('all the tasks are currently busy or already done, but the GET request from client was successful')
             self.send_response(204)
             self.end_headers()
-        return
+            return
+        if job_type:
+            logging.info('the client took a task of type'.format(str(job_type)))
+            #  if everything is fine: there are available tasks - update the db
+            if not handler.update_all_get(task_id):
+                logging.warning(
+                    'the db was not successfully updated, it remained in the previous state')
+                self.send_response(501)
+                self.end_headers()
+                return
+            logging.info('the db was successfully updated')
+            logging.info('the GET request from client was successful')
+            self.send_response(200)
+            self.end_headers()
+            if not configs:
+                self.wfile.write(json.dumps(job_type).encode())
+                return
+            self.wfile.write(json.dumps((job_type, configs)).encode())
 
 
 
@@ -92,7 +102,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         print('bad result from client')
 
-port = 8081
+port = 8080
 if __name__ == '__main__':
     with TCPServer(('',  port), RequestHandler) as httpd:
         print('started server at port {}'.format(str(port)))

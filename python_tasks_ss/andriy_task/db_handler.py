@@ -23,7 +23,7 @@ class DBUpdater:
         :returns
         tuple: cursor - obj, the object for communicating with db; connection - the connection object
         '''
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         return (connection, cursor)
     def insert_n_task(self):
@@ -59,6 +59,7 @@ class DBUpdater:
             cursor.close()
             conn.close()
             return (res, output)
+    """
     def check_presence(self):
         '''
         this method checks if the client which sends request for task is already in db
@@ -97,6 +98,7 @@ class DBUpdater:
             cursor.close()
             conn.close()  
             return False
+    """
     def check_free_tasks(self):
         '''
         this method checks which task is currently free and returns its name and id
@@ -104,19 +106,20 @@ class DBUpdater:
         tuple with task_name - the name of the free task and task_id - the id of that task if there are free tasks
         None - if there are no free tasks
         '''
-        conn, cursor = self.open_conn()    
-        if cursor.execute("select * from `tasks` where status = 'free'"):
+        conn, cursor = self.open_conn()
+        if cursor.execute("select * from `tasks` where status = 'new'"):
             free_task = cursor.fetchone()
-            task_id  = free_task[0]
-            task_name = free_task[1]
+            task_id = free_task[0]
+            configs  = free_task[2]
+            job_type = free_task[1]
             cursor.close()
             conn.close()
-            return (task_name, task_id)
+            return (task_id, job_type, configs)
         else:
             cursor.close()
             conn.close()
             return
-    def update_all_get(self, task_name, task_id):
+    def update_all_get(self, task_id):
         '''
         this method updates the db tables `clients`, `tasks` and `results` for GET requests and makes sure that the changes to the db will be committed only in case when all 3 tables are updated
         : params
@@ -127,6 +130,7 @@ class DBUpdater:
         False if otherwise
         '''
         conn, cursor = self.open_conn()
+        """
         if cursor.execute("update `clients` set `status` = 'busy' where `name` = '{}'".format(self.client_name)):
             if cursor.execute("update `tasks` set `status` = 'taken' where `id` = '{}'".format(task_id)):
                 if cursor.execute("insert into `results`(`task_id`, `client_id`, `start_time`) values({}, (select `id` from clients where `name` = '{}'), '{}')".format(task_id, self.client_name, datetime.today().strftime('%Y-%m-%d %H:%M:%S'))):
@@ -134,6 +138,12 @@ class DBUpdater:
                     cursor.close()
                     conn.close()
                     return True
+        """
+        if cursor.execute("update `tasks` set `status` = 'in progress' where id = {}".format(str(task_id))):
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return True
         cursor.close()
         conn.close()
         return False

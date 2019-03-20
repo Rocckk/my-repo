@@ -9,6 +9,7 @@ from time import sleep
 from datetime import datetime
 import logging
 from task_handler import TaskDoer
+from config_getter import Configurator
 
 
 
@@ -36,7 +37,7 @@ if __name__ == "__main__":
     #  ask for task
     while True:
         try:
-            r = requests.get('http://127.0.0.1:8081')
+            r = requests.get('http://127.0.0.1:8080')
             logging.info('the GET request to server has been sent')
 
             """
@@ -44,15 +45,24 @@ if __name__ == "__main__":
             """    
             if r.status_code == 200:
                 task = r.text
-                print("the task you received is task {}".format(str(task)))
-                logging.info('the client received response and got the task {}'. format(task))
+                print('##', task)
+                if isinstance(task, str):
+                    logging.info('the client received response and got the task of {} with no configs'. format(task))
+                    config = Configurator.get_config(task_dict[int(task)])
+                handler = TaskDoer(task)
+                data = handler.do()
+                print('data:', data)
+                """
                 if task in task_dict:
                     handler = TaskDoer(task, name)
                     data = handler.do()
                     print('data:', data)
+                """
+                """
                 else:
                     print('Unknown task')
                     data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
+                """
                 p = requests.post('http://127.0.0.1:8081',  data)
             elif r.status_code == 204:
                 print('no available tasks for now')
@@ -60,9 +70,10 @@ if __name__ == "__main__":
                 print('client error')
             elif str(r.status_code).startswith('5'):
                 print('server error occurred')
+                logging.warning()
         except requests.exceptions.ConnectionError:    
             print('the server seems to be inactive or failed to reply')
-            logging.waring('the client did not get any response to its GET request')
+            logging.warning('the client did not get any response to its GET request')
         finally:
             sleep(5)
 
