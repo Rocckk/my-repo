@@ -11,10 +11,24 @@ from db_handler import DBUpdater
 
 
 class TaskDoer:
+    '''
+    this class is the handler of various tasks received by clients; it checks the name of the task choose the logic for its proper handling
+    '''
     def __init__(self, task, name):
+        '''
+        the constructor of objects of this class
+        '''
         self.task = task
         self.name = name
     def do(self):
+        '''
+        this method if the universal handler of predefined tasks: depending on the task name it processes it properly
+        :params
+        self.task - str, the name of the task which is passed to the method
+        self.name - the name of the client who sent the task
+        :returns
+        resp - json-endoded dict, with the client name, task name, task result, task output and the time when the task was done  
+        '''
         if self.task == 'uniqueness counter':
             try:
                 with open('test_file.txt', 'r') as f:
@@ -93,13 +107,23 @@ class TaskDoer:
             rand = randint(0, len(list_cont))
             comm = list_cont[rand]
             print('((', comm)
-            proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE)
-            output = proc.stdout.decode()
-            if output:
-                res = "success"
-                print('the dump was made successfully')
-            else:
-                print('the dump was not made successfully')
+            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
+            #  if the command chosen requires input
+            if comm in comms_w_input:                                                                    
+                while comm in comms_w_input:
+                    rand = randint(0, len(list_cont))
+                    comm = list_cont[rand]
+            try:
+                proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE, timeout=3)
+                output = proc.stdout.decode()
+                if output:
+                    res = "success"
+                    print('the dump was made successfully')
+                else:
+                    print('the dump was not made successfully')
+                    res = 'failure'
+            except bash.TimeoutExpired:
+                output = 'no output, command timed out returning nothing'
                 res = 'failure'
         elif self.task == 'task creator':
             lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
@@ -108,36 +132,38 @@ class TaskDoer:
             rand = randint(0, len(list_cont)-1)
             comm = list_cont[rand]
             print('&&', comm)
-            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh', ]
+            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
             #  if the command chosen requires input
             if comm in comms_w_input:                                                                    
                 while comm in comms_w_input:
                     rand = randint(0, len(list_cont))
                     comm = list_cont[rand]
-            proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE)
-            #  if there was an error during program execution - it's not suitable
-            if proc.returncode != 0:
-                print ('this command cannot be used without options and arguments, please choose a different command')
+            try:
+                proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE, timeout=3)
+                #  if there was an error during program execution - it's not suitable
+                if proc.returncode != 0:
+                    print ('this command cannot be used without options and arguments, please choose a different command')
+                    res = 'failure'
+                    output = 'not created'
+                else:
+                    #  if there was no error - get the info on this command and create a new task with it
+                    proc_data = bash.run("whatis {} | sed '2,$ d'".format(comm), shell=True, stdout=bash.PIPE)
+                    desc = proc_data.stdout.decode()
+                    stop = desc.find('(')
+                    new_task = 'custom '+ desc[:stop] + ' task'
+                    start = desc.find('- ') + 2
+                    end = desc.find('\n')
+                    description = desc[start:end]
+                    print('***', description)
+                    # if the description of the task and its name are ready
+                    if new_task and description:
+                        obj = DBUpdater(new_task, description)
+                        res, output = obj.insert_n_task()
+            except bash.TimeoutExpired:
+                output = 'no output, command timed out returning nothing'
                 res = 'failure'
-                output = 'not created'
-            else:
-                #  if there was no error - get the info on this command and create a new task with it
-                proc_data = bash.run("whatis {} | sed '2,$ d'".format(comm), shell=True, stdout=bash.PIPE)
-                desc = proc_data.stdout.decode()
-                stop = desc.find('(')
-                new_task = 'custom '+ desc[:stop] + ' task'
-                start = desc.find('- ') + 2
-                end = desc.find('\n')
-                description = desc[start:end]
-                print('***', description)
-                # if the description of the task and its name are ready
-                if new_task and description:
-                    obj = DBUpdater(new_task, description)
-                    res, output = obj.insert_n_task()
-
         resp = {"client": self.name, "task": self.task, "result": res, "output": output,
                 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
-        print('r', resp)
-             
+        print('r', resp)             
         return json.dumps(resp)
 

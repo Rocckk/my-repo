@@ -23,8 +23,6 @@ args = parser.parse_args()
 
 
 
-#       REDO WITH 'DONE' STATUS OF THE TASK: THIS TASK CAN'T BE DONE ANYMORE
-
 
 if __name__ == "__main__":
     task_list = ['uniqueness counter', 'file creator', 'directory creator', 'file deleter', 'dir deleter', 'dump maker', 'task creator']

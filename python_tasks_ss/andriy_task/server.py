@@ -1,4 +1,4 @@
-'''
+ '''
 this module is a server which gives client tasks and updates database, detecting which client is free, which task is free and what is the result of the task
 '''
 from http.server import BaseHTTPRequestHandler
@@ -92,7 +92,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         print('bad result from client')
 
-port = 8080
+port = 8081
 if __name__ == '__main__':
     with TCPServer(('',  port), RequestHandler) as httpd:
         print('started server at port {}'.format(str(port)))
