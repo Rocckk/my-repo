@@ -38,13 +38,11 @@ class TaskDoer:
                             uniq_count += 1
                     output = 'there are {} unique words in the file'.format(str(uniq_count))
                     res = 'success'
-                    print('11  ', res)
             except FileNotFoundError as e:
                 res = "failure"
                 output = "the file to look through was not found"
         elif self.task[1] == 2:
             proc = bash.run('touch {}'.format(self.task[2]), shell=True)
-            # if such file exists already - try another name
             if proc.returncode != 0:
                 output = 'a new file was not created'
                 res = "failure"
@@ -53,7 +51,6 @@ class TaskDoer:
                 res = "success"
         elif self.task[1] == 3:
             proc = bash.run('mkdir {}'.format(self.task[2]), shell=True)
-            
             if proc.returncode != 0:
                 output = 'a new dir was not created'
                 res = "failure"
@@ -131,7 +128,6 @@ class TaskDoer:
             obj = DBUpdater(list_of_tasks)
             res, output = obj.insert_n_task()
         resp = {"task_id": self.task[0], "result": res, "output": output, 'modified': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
-        print('r', resp)             
         return json.dumps(resp)
 
 

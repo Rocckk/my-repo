@@ -1,109 +1,652 @@
-
-2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the client received response and got the task of type 1
-2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:16,830: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:21,860: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:21,861: INFO -- logged by: client.py -- the client received response and got the task of type 2
-2019-03-21 20:56:21,861: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:21,898: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:26,915: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:26,916: INFO -- logged by: client.py -- the client received response and got the task of type 3
-2019-03-21 20:56:26,916: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:26,953: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:31,980: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:31,980: INFO -- logged by: client.py -- the client received response and got the task of type 4
-2019-03-21 20:56:31,981: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:32,017: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the client received response and got the task of type 5
-2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:37,074: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the client received response and got the task of type 6
-2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:42,138: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the client received response and got the task of type 7
-2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:47,173: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the client received response and got the task of type 23
-2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:52,236: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:56:57,259: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:56:57,260: INFO -- logged by: client.py -- the client received response and got the task of type 24
-2019-03-21 20:56:57,260: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:56:57,294: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:02,314: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:02,315: INFO -- logged by: client.py -- the client received response and got the task of type 25
-2019-03-21 20:57:02,315: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:02,321: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the client received response and got the task of type 26
-2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:07,350: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the client received response and got the task of type 27
-2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:12,440: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the client received response and got the task of type 28
-2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:17,494: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the client received response and got the task of type 29
-2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:22,544: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the client received response and got the task of type 30
-2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:27,605: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:32,628: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:32,629: INFO -- logged by: client.py -- the client received response and got the task of type 31
-2019-03-21 20:57:32,629: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:32,636: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:37,648: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:37,649: INFO -- logged by: client.py -- the client received response and got the task of type 32
-2019-03-21 20:57:37,649: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:37,684: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the client received response and got the task of type 33
-2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:42,735: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the client received response and got the task of type 34
-2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:47,795: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the client received response and got the task of type 35
-2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:52,851: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the client received response and got the task of type 36
-2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:57:57,890: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the client received response and got the task of type 37
-2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:58:02,949: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the client received response and got the task of type 38
-2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:58:07,995: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the client received response and got the task of type 39
-2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:58:13,050: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the client received response and got the task of type 40
-2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:58:18,085: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the client received response and got the task of type 41
-2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the client sent task to the handler
-2019-03-21 20:58:23,135: INFO -- logged by: client.py -- the POST request has been sent to the server
-2019-03-21 20:58:28,156: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:28,156: INFO -- logged by: client.py -- no available tasks for now
-2019-03-21 20:58:33,176: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-21 20:58:33,176: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:47:28,282: INFO -- logged by: server.py -- the server started at port 8080
+2019-03-21 22:47:28,283: INFO -- logged by: server.py -- the log file 'server_client.log' was created in append mode in current directory by server or it already exists
+2019-03-21 22:48:01,390: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:01,393: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:01,393: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:01,397: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:01,397: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:01,646: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:01,647: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:01,649: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:01,650: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:01,650: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:01,653: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:01,659: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:01,659: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:01,759: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:01,760: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:01,762: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:01,762: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:01,767: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:01,767: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:01,772: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:01,772: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:01,889: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:01,890: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:01,892: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:01,892: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:01,892: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:01,899: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:01,907: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:01,907: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:02,003: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,003: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,005: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:02,005: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:02,010: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:02,011: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:02,015: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:02,016: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:02,127: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,128: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,130: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:02,130: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:02,131: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:02,139: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:02,147: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:02,147: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:02,252: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,254: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,255: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:02,255: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:02,261: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:02,261: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:02,265: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:02,266: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:02,354: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,355: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,357: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:02,357: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:02,358: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:02,365: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:02,373: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:02,373: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:02,457: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,457: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,459: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:02,460: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:02,465: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:02,465: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:02,470: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:02,470: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:02,560: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,561: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,563: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:02,563: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:02,563: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:02,570: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:02,577: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:02,578: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:02,976: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:02,977: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:02,979: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:02,979: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:02,985: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:02,986: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:02,991: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:02,991: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:03,066: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:03,067: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:03,068: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:03,069: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:03,069: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:03,077: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:03,084: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:03,085: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:03,168: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:03,169: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:03,171: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:03,172: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:03,178: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:03,178: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:03,182: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:03,182: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:03,281: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:03,282: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:03,284: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:03,284: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:03,285: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:03,538: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:03,544: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:03,544: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:03,677: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:03,678: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:03,680: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:03,680: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:03,686: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:03,686: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:03,691: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:03,691: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:03,809: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:03,810: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:03,811: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:03,812: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:03,812: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:04,251: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:04,257: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:04,257: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:04,354: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:04,355: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:04,356: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:04,357: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:04,362: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:04,362: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:04,366: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:04,367: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:04,493: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:04,494: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:04,495: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:04,496: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:04,496: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:04,503: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:04,514: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:04,515: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:04,631: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:04,632: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:04,633: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:04,634: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:04,639: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:04,639: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:04,643: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:04,644: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:04,799: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:04,800: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:04,802: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:04,802: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:04,802: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:04,811: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:04,820: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:04,820: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:04,948: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:04,949: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:04,951: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:04,952: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:04,957: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:04,957: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:04,961: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:04,961: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:05,098: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:05,099: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:05,101: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:05,101: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:05,101: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:05,109: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:05,120: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:05,120: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:05,248: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:05,249: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:05,251: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:05,251: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:05,257: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:05,258: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:05,262: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:05,262: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:05,387: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:05,388: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:05,389: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:05,390: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:05,390: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:05,390: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:05,396: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:05,396: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:05,856: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:05,856: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:05,857: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:05,857: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:05,859: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:05,859: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:05,861: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:05,861: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:06,027: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,027: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,029: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:06,029: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:06,029: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:06,036: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:06,043: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:06,043: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:06,159: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,160: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,163: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:06,163: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:06,171: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:06,171: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:06,176: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:06,176: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:06,325: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,326: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,327: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:06,327: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:06,328: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:06,343: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:06,349: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:06,349: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:06,464: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,464: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,466: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:06,466: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:06,471: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:06,471: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:06,474: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:06,474: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:06,579: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,580: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,581: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:06,582: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:06,582: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:06,590: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:06,597: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:06,597: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:06,763: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,763: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,765: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:06,765: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:06,770: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:06,771: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:06,775: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:06,775: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:06,938: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:06,938: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:06,940: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:06,941: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:06,941: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:06,947: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:06,954: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:06,954: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:07,113: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:07,113: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:07,115: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:07,115: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:07,120: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:07,120: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:07,123: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:07,123: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:07,258: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:07,259: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:07,260: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:07,261: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:07,261: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:07,268: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:07,277: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:07,278: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:07,444: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:07,444: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:07,446: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:07,446: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:07,451: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:07,451: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:07,455: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:07,455: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:07,630: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:07,630: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:07,632: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:07,632: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:07,633: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:07,640: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:07,647: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:07,648: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:07,814: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:07,814: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:07,816: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:07,817: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:07,822: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:07,822: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:07,826: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:07,827: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:08,308: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:08,309: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:08,310: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:08,310: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:08,310: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:08,315: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:08,318: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:08,318: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:08,463: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:08,464: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:08,466: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:08,466: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:08,471: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:08,471: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:08,475: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:08,475: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:08,679: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:08,679: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:08,681: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:08,681: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:08,681: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:08,692: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:08,699: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:08,699: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:08,865: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:08,865: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:08,867: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:08,868: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:08,872: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:08,872: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:08,875: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:08,876: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:09,041: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:09,042: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:09,043: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:09,044: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:09,044: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:09,596: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:09,600: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:09,600: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:09,724: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:09,725: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:09,726: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:09,727: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:09,732: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:09,732: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:09,736: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:09,736: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:09,886: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:09,887: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:09,888: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:09,889: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:09,889: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:09,889: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:09,894: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:09,894: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:10,096: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:10,096: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:10,098: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:10,098: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:10,103: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:10,103: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:10,107: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:10,107: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:10,282: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:10,282: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:10,284: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:10,284: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:10,284: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:10,289: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:10,296: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:10,297: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:10,778: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:10,778: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:10,779: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:10,779: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:10,781: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:10,781: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:10,783: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:10,783: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:10,934: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:10,934: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:10,935: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:10,935: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:10,935: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:11,667: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:11,673: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:11,673: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:11,870: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:11,871: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:11,873: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:11,873: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:11,877: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:11,878: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:11,881: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:11,881: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:12,039: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:12,040: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:12,042: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:12,042: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:12,042: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:12,043: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:12,048: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:12,048: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:12,191: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:12,192: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:12,193: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:12,194: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:12,198: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:12,199: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:12,202: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:12,202: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:12,414: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:12,415: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:12,417: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:12,417: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:12,417: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:13,338: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:13,344: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:13,345: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:14,250: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:14,251: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:14,253: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:14,253: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:14,258: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:14,258: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:14,262: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:14,262: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:14,621: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:14,622: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:14,624: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:14,624: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:14,625: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:14,632: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:14,638: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:14,639: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:14,819: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:14,820: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:14,823: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:14,823: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:14,829: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:14,829: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:14,833: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:14,834: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:14,993: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:14,993: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:14,995: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:14,995: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:14,995: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:15,002: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:15,009: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:15,009: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:15,222: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:15,223: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:15,226: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:15,227: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:15,234: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:15,234: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:15,238: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:15,238: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:15,418: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:15,418: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:15,420: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:15,420: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:15,421: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:15,428: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:15,435: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:15,435: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:15,988: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:15,989: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:15,991: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:15,991: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:15,996: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:15,996: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:16,000: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:16,000: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:16,168: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:16,169: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:16,171: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:16,171: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:16,172: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:16,180: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:16,189: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:16,189: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:16,402: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:16,403: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:16,404: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:16,405: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:16,410: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:16,410: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:16,413: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:16,413: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:16,665: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:16,666: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:16,667: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:16,668: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:16,668: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:16,810: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:16,818: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:16,818: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:17,009: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:17,010: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:17,012: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:17,012: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:17,017: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:17,017: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:17,021: INFO -- logged by: server.py -- the server received a valid response from the task handler
+2019-03-21 22:48:17,021: INFO -- logged by: server.py -- the handler is going to be called to update the db
+2019-03-21 22:48:17,158: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:17,158: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:17,160: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:17,160: INFO -- logged by: client.py -- the client received response to its GET request
+2019-03-21 22:48:17,160: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 22:48:17,167: INFO -- logged by: client.py -- task handler did the task and sent back the result
+2019-03-21 22:48:17,176: INFO -- logged by: server.py -- the server received the POST request from a client
+2019-03-21 22:48:17,177: INFO -- logged by: server.py -- the server is going to call db handler to update the db
+2019-03-21 22:48:17,360: INFO -- logged by: server.py -- the db was successfully updated
+2019-03-21 22:48:17,361: INFO -- logged by: server.py -- the server successfully sent response to the client
+2019-03-21 22:48:17,364: INFO -- logged by: client.py -- the POST request ahs been sent to the server
+2019-03-21 22:48:17,364: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:17,369: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:17,369: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:17,372: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:17,374: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:17,374: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:22,376: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:22,382: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:22,383: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:22,384: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:22,385: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:22,385: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:27,390: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:27,397: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:27,397: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:27,398: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:27,399: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:27,399: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:32,399: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:32,405: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:32,405: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:32,406: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:32,407: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:32,407: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:37,410: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:37,416: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:37,416: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:37,417: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:37,418: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:37,418: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:42,423: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:42,428: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:42,428: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:42,430: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:42,431: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:42,431: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:47,436: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:47,441: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:47,442: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:47,445: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:47,447: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:47,448: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:52,453: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:52,458: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:52,458: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:52,462: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:52,464: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:52,464: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:48:57,470: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:48:57,475: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:48:57,476: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:48:57,477: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:48:57,477: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:48:57,477: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:02,483: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:02,488: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:02,488: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:02,492: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:02,494: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:02,494: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:07,500: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:07,505: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:07,505: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:07,506: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:07,507: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:07,507: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:12,511: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:12,518: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:12,518: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:12,519: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:12,520: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:12,520: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:17,525: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:17,530: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:17,530: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:17,531: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:17,532: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:17,532: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:22,537: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:22,544: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:22,544: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:22,548: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:22,550: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:22,551: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:27,556: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:27,562: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:27,562: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:27,563: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:27,564: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:27,564: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:32,570: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:32,575: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:32,575: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:32,577: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:32,577: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:32,578: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:37,580: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:37,584: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:37,585: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:37,586: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:37,587: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:37,587: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:42,592: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:42,597: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:42,597: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:42,600: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:42,603: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:42,603: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:47,607: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:47,612: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:47,612: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:47,615: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:47,618: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:47,618: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:52,622: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:52,628: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:52,628: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:52,631: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:52,633: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:52,634: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:49:57,639: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:49:57,645: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:49:57,645: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:49:57,646: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:49:57,647: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:49:57,647: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:50:02,653: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:50:02,660: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:50:02,660: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:50:02,664: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:50:02,665: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:50:02,665: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 22:50:07,670: INFO -- logged by: client.py -- the client is working and is going to ask fro task
+2019-03-21 22:50:07,673: INFO -- logged by: server.py -- the server received GET request from a client
+2019-03-21 22:50:07,673: INFO -- logged by: server.py -- the server will call the task handler to get a free task
+2019-03-21 22:50:07,674: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
+2019-03-21 22:50:07,675: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 22:50:07,676: INFO -- logged by: client.py -- no available tasks for now

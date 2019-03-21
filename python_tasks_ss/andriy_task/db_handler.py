@@ -3,25 +3,25 @@ this module is a connector to the database which updates it whenever necessary
 '''
 
 import pymysql
-from datetime import datetime
 
 class DBUpdater:
     '''
     this class is the database updater which responds to requests from clients/server to update info in db tables and fulfils them
     '''
-    def __init__(self, list_of_tasks=None, res =None):
+    def __init__(self, list_of_tasks=None, res=None):
         '''
         the constructor which initializes necessary class attributes
         '''
         self.list_of_tasks = list_of_tasks
         self.result = res
+
     def open_conn(self):
         '''
         this method opens connection to the db and initializes cursor object to communicate with it
         :returns
         tuple: cursor - obj, the object for communicating with db; connection - the connection object
         '''
-        connection = pymysql.connect(host='localhost', user='itymos', password='qSa$5cQf', db='jobs')
+        connection = pymysql.connect(host='localhost', user='root', password='2742q216', db='jobs')
         cursor = connection.cursor()
         return (connection, cursor)
 

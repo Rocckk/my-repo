@@ -10,36 +10,31 @@ from task_handler import TaskDoer
 
 
 if __name__ == "__main__":
-    task_dict = {1:'uniqueness counter', 2: 'file creator', 3: 'directory creator', 4: 'file deleter', 5: 'dir deleter', 6: 'dump maker', 7: 'task creator'}
     logging.basicConfig(filename='server_client.log', level=logging.INFO, format='%(asctime)s: %(levelname)s -- logged by: %(filename)s -- %(message)s')
-    #  ask for task
     while True:
         try:
+            logging.info('the client is working and is going to ask fro task')
             r = requests.get('http://127.0.0.1:8080')
-            logging.info('the GET request to server has been sent')
-            if r.status_code == 200:
-                task = json.loads(r.text)
-                print('clients received', task)
-                logging.info('the client received response and got the task of type {}'. format(str(task[0])))
-                handler = TaskDoer(task)
-                logging.info('the client sent task to the handler')
-                data = handler.do()
-                print('data received from task handler:', data)
+        except requests.exceptions.ConnectionError:
+            logging.error('the client did not get any response to its GET request: the server seems to be inactive or failed to reply')
+        logging.info('the GET request to server has been sent')
+        if r.status_code == 200:
+            task = json.loads(r.text)
+            logging.info('the client received response to its GET request')
+            handler = TaskDoer(task)
+            logging.info('the client sent task to the handler')
+            data = handler.do()
+            logging.info('task handler did the task and sent back the result')
+            try:
                 p = requests.post('http://127.0.0.1:8080',  data)
-                logging.info('the POST request has been sent to the server')
-            elif r.status_code == 204:
-                print('no available tasks for now')
+                logging.info('the POST request ahs been sent to the server')
+            except requests.exceptions.ConnectionError:
+                logging.error('the client did not get any response to its P0ST request: the server seems to be inactive or failed to reply')
+        elif r.status_code == 204:
                 logging.info('no available tasks for now')
-            elif str(r.status_code).startswith('4'):
-                 print('client error')
-                 logging.warning('invalid request has been sent to the server')
-            elif str(r.status_code).startswith('5'):
-                print('server error occurred')
-                logging.warning('error occurred on server\'s side')
-        except requests.exceptions.ConnectionError:    
-            print('the server seems to be inactive or failed to reply')
-            logging.warning('the client did not get any response to its request')
-        finally:
-            sleep(5)
+                sleep(5)
+        elif str(r.status_code).startswith('4'):
+            logging.warning('invalid request has been sent to the server')
+        elif str(r.status_code).startswith('5'):
+            logging.warning('error occurred on server\'s side')
 
-  

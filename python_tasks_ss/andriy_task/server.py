@@ -79,11 +79,11 @@ class RequestHandler(BaseHTTPRequestHandler):
 port = 8080
 if __name__ == '__main__':
     with TCPServer(('',  port), RequestHandler) as httpd:
+        logging.basicConfig(filename='server_client.log', level=logging.INFO, format='%(asctime)s: %(levelname)s -- logged by: %(filename)s -- %(message)s')
         logging.info("the server started at port {}".format(port))
         #  actions of the server should be logged, so log file should be created or appended if it exists
         l = open('server_client.log', 'a')
         l.close()
         logging.info('the log file \'server_client.log\' was created in append mode in current directory by server or it already exists')
-        logging.basicConfig(filename='server_client.log', level=logging.INFO, format='%(asctime)s: %(levelname)s -- logged by: %(filename)s -- %(message)s')
         httpd.serve_forever()
 
