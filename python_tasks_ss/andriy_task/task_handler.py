@@ -14,156 +14,125 @@ class TaskDoer:
     '''
     this class is the handler of various tasks received by clients; it checks the name of the task choose the logic for its proper handling
     '''
-    def __init__(self, task, name):
+    def __init__(self, task):
         '''
         the constructor of objects of this class
         '''
         self.task = task
-        self.name = name
     def do(self):
         '''
         this method if the universal handler of predefined tasks: depending on the task name it processes it properly
         :params
-        self.task - str, the name of the task which is passed to the method
-        self.name - the name of the client who sent the task
+        self.task - list, the id, type of job and its gonfigs  which are passed to the method
         :returns
         resp - json-endoded dict, with the client name, task name, task result, task output and the time when the task was done  
         '''
-        if self.task == 'uniqueness counter':
+        if self.task[1] == 1:
             try:
-                with open('test_file.txt', 'r') as f:
+                 with open(self.task[2], 'r') as f:
                     cont = f.read()
                     list_content = cont.split()
                     uniq_count = 0
                     for i in list_content:
-                        if list_content.count(i) == 1:
+                         if list_content.count(i) == 1:
                             uniq_count += 1
                     output = 'there are {} unique words in the file'.format(str(uniq_count))
                     res = 'success'
+                    print('11  ', res)
             except FileNotFoundError as e:
                 res = "failure"
                 output = "the file to look through was not found"
-        elif self.task == 'file creator':
-            proc = bash.run('touch tfile{}'.format(str(randint(0, 1000))), shell=True)
+        elif self.task[1] == 2:
+            proc = bash.run('touch {}'.format(self.task[2]), shell=True)
             # if such file exists already - try another name
-            while proc.returncode != 0:
-                proc = bash.run('tfile{}'.format(str(randint(0, 1000))), shell=True)
-            output = 'a new file was created'
-            print(output + ' successfully')
-            res = "success"
-        elif self.task == 'directory creator':
-            proc = bash.run('mkdir tdir{}'.format(str(randint(0, 1000))), shell=True)
-            # if such dir exists already - try another name
-            while proc.returncode != 0:
-                proc = bash.run('mkdir tdir{}'.format(str(randint(0, 1000))), shell=True)
-            output = 'a new dir was created'
-            print(output + ' successfully')
-            res = "success"
-        elif self.task == 'file deleter':
-            proc = bash.run("ls", shell=True, stdout=bash.PIPE)
-            cont = proc.stdout.decode()
-            list_cont = cont.split()
-            for i in list_cont:
-                if i.startswith('tfile'):
-                    deletion = bash.run('rm {}'.format(i), shell=True)
-                    if deletion.returncode != 0:
-                        print('file was not deleted successfully')
-                        output = 'a file was not deleted'
-                        res = 'failure'
-                        break
-                    else:
-                        print('The file was deleted successfully')
-                        output = 'a file was deleted'
-                        res = 'success'
-                        break
-            else:
-                output = "no file was found for deletion"
+            if proc.returncode != 0:
+                output = 'a new file was not created'
                 res = "failure"
-
-        elif self.task == 'dir deleter':
-            proc = bash.run("ls", shell=True, stdout=bash.PIPE)
-            cont = proc.stdout.decode()
-            list_cont = cont.split()
-            for i in list_cont:
-                if i.startswith('tdir'):
-                    deletion = bash.run('rmdir {}'.format(i), shell=True)
-                    if deletion.returncode != 0:
-                        output = 'a directory was not deleted'
-                        res = 'failure'
-                        print('dir was not deleted successfully')
-                        break
-                    else:
-                        print('The dir was deleted successfully')
-                        output = 'a dir was deleted'
-                        res = 'success'
-                        break
             else:
-                output = "no dir was found for deletion"
+                output = 'a new file was created'
+                res = "success"
+        elif self.task[1] == 3:
+            proc = bash.run('mkdir {}'.format(self.task[2]), shell=True)
+            
+            if proc.returncode != 0:
+                output = 'a new dir was not created'
                 res = "failure"
-        elif self.task == 'dump maker':
-            lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
-            cont = lst.stdout.decode()
-            list_cont = cont.split()
-            rand = randint(0, len(list_cont))
-            comm = list_cont[rand]
-            print('((', comm)
-            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
-            #  if the command chosen requires input
-            if comm in comms_w_input:                                                                    
-                while comm in comms_w_input:
-                    rand = randint(0, len(list_cont))
-                    comm = list_cont[rand]
+            else:
+                output = 'a new dir was created'
+                res = "success"
+        elif self.task[1] == 4:
+            deletion = bash.run('rm {}'.format(self.task[2]), shell=True)
+            if deletion.returncode != 0:
+                output = 'a file was not deleted'
+                res = 'failure'
+            else:
+                output = 'a file was deleted'
+                res = 'success'
+        elif self.task[1] == 5:
+            deletion = bash.run('rmdir {}'.format(self.task[2]), shell=True)
+            if deletion.returncode != 0:
+                output = 'a directory was not deleted'
+                res = 'failure'
+            else:
+                output = 'a dir was deleted'
+                res = 'success'
+        elif self.task[1] == 6:
             try:
-                proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE, timeout=3)
+                proc = bash.run(self.task[2], shell=True, stderr=bash.STDOUT, stdout=bash.PIPE, timeout=3)
                 output = proc.stdout.decode()
                 if output:
                     res = "success"
-                    print('the dump was made successfully')
                 else:
-                    print('the dump was not made successfully')
                     res = 'failure'
             except bash.TimeoutExpired:
                 output = 'no output, command timed out returning nothing'
-                res = 'failure'
-        elif self.task == 'task creator':
-            lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
-            cont = lst.stdout.decode()
-            list_cont = cont.split()                      
-            rand = randint(0, len(list_cont)-1)
-            comm = list_cont[rand]
-            print('&&', comm)
-            comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
-            #  if the command chosen requires input
-            if comm in comms_w_input:                                                                    
-                while comm in comms_w_input:
-                    rand = randint(0, len(list_cont))
+                res = 'failure' 
+        elif self.task[1] == 7:
+            conf = int(self.task[2])
+            file_path_list = ["/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/a.txt",
+                        "/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/b.txt",
+                        "/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/c.txt "
+                        ]
+            dir_path_list = ["/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/a_dir",
+                        "/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/b_dir",
+                        "/home/itymos/git_thing/my-repo/python_tasks_ss/andriy_task/test_dir/c_dir"
+                        ]
+            list_of_tasks = []
+            for i in range(conf):
+                task = []
+                j_type = randint(1,7)
+                task.append(j_type)
+                if j_type in [1, 2, 4]:
+                    task_conf = file_path_list[randint(0, len(file_path_list)-1)]
+                    task.append(task_conf)
+                elif j_type in [3, 5]:
+                    task_conf = dir_path_list[randint(0, len(file_path_list)-1)]
+                    task.append(task_conf)
+                elif j_type == 6:
+                    lst = bash.run('ls /bin', shell=True, stdout=bash.PIPE)
+                    cont = lst.stdout.decode()
+                    list_cont = cont.split()                      
+                    rand = randint(0, len(list_cont)-1)
                     comm = list_cont[rand]
-            try:
-                proc = bash.run(comm, shell=True, stderr=bash.STDOUT, stdout=bash.PIPE, timeout=3)
-                #  if there was an error during program execution - it's not suitable
-                if proc.returncode != 0:
-                    print ('this command cannot be used without options and arguments, please choose a different command')
-                    res = 'failure'
-                    output = 'not created'
-                else:
-                    #  if there was no error - get the info on this command and create a new task with it
-                    proc_data = bash.run("whatis {} | sed '2,$ d'".format(comm), shell=True, stdout=bash.PIPE)
-                    desc = proc_data.stdout.decode()
-                    stop = desc.find('(')
-                    new_task = 'custom '+ desc[:stop] + ' task'
-                    start = desc.find('- ') + 2
-                    end = desc.find('\n')
-                    description = desc[start:end]
-                    print('***', description)
-                    # if the description of the task and its name are ready
-                    if new_task and description:
-                        obj = DBUpdater(new_task, description)
-                        res, output = obj.insert_n_task()
-            except bash.TimeoutExpired:
-                output = 'no output, command timed out returning nothing'
-                res = 'failure'
-        resp = {"client": self.name, "task": self.task, "result": res, "output": output,
-                'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
+                    comms_w_input = ['cat', 'dd', 'ed', 'getfacl', 'pax', 'red', 'tcsh', 'csh', 'sh']
+                    #  if the command chosen requires input
+                    if comm in comms_w_input:                                                                    
+                        while comm in comms_w_input:
+                            rand = randint(0, len(list_cont))
+                            comm = list_cont[rand]
+                    task_conf = comm
+                    task.append(task_conf)
+                elif j_type == 7:
+                    task_conf = randint(1,4)
+                    task.append(task_conf)
+                task.append(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
+                list_of_tasks.append(task)
+            #  updating db
+            obj = DBUpdater(list_of_tasks)
+            res, output = obj.insert_n_task()
+        resp = {"task_id": self.task[0], "result": res, "output": output, 'modified': datetime.today().strftime('%Y-%m-%d %H:%M:%S')}
         print('r', resp)             
         return json.dumps(resp)
+
+
 

@@ -1,80 +1,41 @@
 '''
-this module is the HTTP client which communicates with server: asks for available tasks, processes them and returns a result to the server
+this module is the HTTP client which communicates with server: asks for available tasks, sends received tasks to the task handler and when the results are received from the task handler - posts it to the server
 '''
 
 import requests
 import json
-#  import argparse
 from time import sleep
-from datetime import datetime
 import logging
 from task_handler import TaskDoer
-from config_getter import Configurator
 
-
-
-
-"""
-parser = argparse.ArgumentParser(description='the script should be used with the options only if you are prompted to do that')
-group = parser.add_mutually_exclusive_group()
-group.add_argument('--c', help='a bash command which will be used by this script to generate new tasks', metavar='command')
-group.add_argument('--f', help='choose the file to remove if appropriate task was given', metavar='file')
-group.add_argument('--d', help='choose the directory to remove if appropriate task was given', metavar='dir')
-group.add_argument('--r', help='create a dump of a command', nargs='+', metavar=('command', 'option'))
-args = parser.parse_args()
-"""
 
 if __name__ == "__main__":
-    task_dict = {1:'uniqueness counter', 2: 'file creator', 3: 'directory creator', 4: 'file deleter', 5: 'dir deleter', 6: 'dump maker', 7: 'task creator'}
     logging.basicConfig(filename='server_client.log', level=logging.INFO, format='%(asctime)s: %(levelname)s -- logged by: %(filename)s -- %(message)s')
-    #  unique name of the client, always the same, several clients with the same name are not allowed! the name cannot be a collection, only a string, int, float. 
-    
-    """
-    name = 'client_A'
-     
-    params = {"name": name}
-    """
-    #  ask for task
     while True:
         try:
+            logging.info('the client is working and is going to ask fro task')
             r = requests.get('http://127.0.0.1:8080')
-            logging.info('the GET request to server has been sent')
-
-            """
-            r = requests.get('http://127.0.0.1:8081', params=params)
-            """    
-            if r.status_code == 200:
-                task = r.text
-                print('##', task)
-                if isinstance(task, str):
-                    logging.info('the client received response and got the task of {} with no configs'. format(task))
-                    config = Configurator.get_config(task_dict[int(task)])
-                handler = TaskDoer(task)
-                data = handler.do()
-                print('data:', data)
-                """
-                if task in task_dict:
-                    handler = TaskDoer(task, name)
-                    data = handler.do()
-                    print('data:', data)
-                """
-                """
-                else:
-                    print('Unknown task')
-                    data = json.dumps({"client":name, "task": task, "result": 'success', "output": 'no logic for newly created task as of now', 'time': datetime.today().strftime('%Y-%m-%d %H:%M:%S')} ) 
-                """
-                p = requests.post('http://127.0.0.1:8081',  data)
+        except requests.exceptions.ConnectionError:
+            logging.error('the client did not get any response to its GET request: the server seems to be inactive or failed to reply')
+        logging.info('the GET request to server has been sent')
+        if r.status_code == 200:
+            task = json.loads(r.text)
+            logging.info('the client received response to its GET request')
+            #  CONTINUE
+            handler = TaskDoer(task)
+            logging.info('the client sent task to the handler')
+            data = handler.do()
+            logging.info('task handler did the task and sent back the result')
+                p = requests.post('http://127.0.0.1:8080',  data)
+                logging.info('the POST request has been sent to the server')
             elif r.status_code == 204:
                 print('no available tasks for now')
+                logging.info('no available tasks for now')
+                sleep(5)
             elif str(r.status_code).startswith('4'):
-                print('client error')
+                 print('client error')
+                 logging.warning('invalid request has been sent to the server')
             elif str(r.status_code).startswith('5'):
                 print('server error occurred')
-                logging.warning()
-        except requests.exceptions.ConnectionError:    
-            print('the server seems to be inactive or failed to reply')
-            logging.warning('the client did not get any response to its GET request')
-        finally:
-            sleep(5)
-
+                logging.warning('error occurred on server\'s side')
 

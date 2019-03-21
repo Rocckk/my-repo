@@ -1,238 +1,109 @@
 
-2019-03-20 22:51:47,926: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:56:07,411: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:57:02,884: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:57:02,887: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:37,719: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:58:37,722: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:37,871: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:58:37,872: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:58:37,872: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:58:37,875: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 22:58:42,885: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:58:42,890: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:43,019: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:58:43,020: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:58:43,020: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:58:43,022: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 22:58:48,033: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:58:48,038: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:48,185: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:58:48,186: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:58:48,187: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:58:48,189: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 22:58:53,200: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:58:53,204: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:53,353: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:58:53,354: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:58:53,354: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:58:53,356: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 22:58:58,362: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:58:58,365: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:58:58,506: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:58:58,507: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:58:58,507: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:58:58,509: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 22:59:03,522: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 22:59:03,527: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 22:59:03,678: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 22:59:03,678: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 22:59:03,679: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 22:59:03,681: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:02:11,621: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:02:11,623: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:02:11,752: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:02:11,752: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:02:11,753: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:02:11,756: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:02:16,766: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:02:16,770: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:02:16,772: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:02:21,781: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:02:21,782: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:02:21,783: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:04:52,141: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:04:52,143: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:04:52,216: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:04:52,217: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:04:52,217: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:04:52,220: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:04:57,232: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:04:57,236: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:04:57,359: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:04:57,360: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:04:57,360: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:04:57,363: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:02,372: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:02,376: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:05:02,534: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:05:02,534: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:05:02,535: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:02,537: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:07,548: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:07,552: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:05:07,683: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:05:07,684: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:05:07,684: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:07,687: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:12,699: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:12,704: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:05:12,836: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:05:12,837: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:05:12,837: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:12,839: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:17,850: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:17,852: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:05:18,001: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:05:18,002: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:05:18,002: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:18,004: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:23,011: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:23,015: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:05:23,166: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:05:23,166: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:05:23,167: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:23,168: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:28,179: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:28,182: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:28,184: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:05:33,191: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:05:33,196: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:05:33,199: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:07:03,195: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:07:03,196: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:07:03,309: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:07:03,310: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:07:03,310: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:07:03,313: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:07:08,325: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:07:08,330: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:07:08,475: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:07:08,475: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:07:08,476: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:07:08,478: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:07:13,493: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:07:13,499: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:07:13,619: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:07:13,619: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:07:13,620: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:07:13,622: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:09:09,290: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:09:09,292: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:09:09,392: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:09:09,392: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:09:09,393: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:09:09,396: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:09:14,408: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:09:14,410: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:09:14,535: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:09:14,536: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:09:14,536: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:09:14,538: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:09:19,551: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:24,563: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:29,574: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:34,585: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:39,594: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:44,601: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:49,612: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:54,623: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:09:59,631: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:13:40,583: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:13:40,586: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:13:40,731: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:13:40,731: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:13:40,732: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:13:40,735: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:13:45,744: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:13:45,749: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:13:45,869: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:13:45,869: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:13:45,870: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:13:45,872: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:13:50,882: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:13:55,894: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:00,906: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:05,917: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:10,926: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:15,939: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:20,950: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:25,961: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:30,972: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:35,984: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:40,994: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:46,010: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:51,020: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:14:56,030: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:15:01,041: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:15:06,050: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:15:11,060: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:15:16,070: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:15:21,080: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:25:06,459: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:25:06,462: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:25:06,624: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:25:06,625: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:25:06,628: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:25:11,636: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:25:11,638: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:25:11,767: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:25:11,768: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:25:11,770: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:25:16,782: WARNING -- logged by: client.py -- the client did not get any response to its GET request
-2019-03-20 23:30:47,109: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:30:47,112: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:30:47,208: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:30:47,209: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:30:47,213: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:30:52,226: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:30:52,230: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:30:52,341: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:30:52,341: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:30:52,345: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:30:57,356: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:30:57,361: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:30:57,506: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:30:57,507: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:30:57,509: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:32:46,773: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:32:46,776: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:32:46,934: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:32:46,934: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:32:46,937: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:32:51,945: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:32:51,949: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:32:52,099: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:32:52,099: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:32:52,102: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:32:57,111: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:32:57,114: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:32:57,242: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:32:57,242: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:32:57,244: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:33:02,256: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:33:02,261: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:33:02,417: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:33:02,418: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:33:02,421: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:35:35,212: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:35:35,214: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:35:35,318: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:35:35,319: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:35:35,322: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:35:40,334: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:35:40,339: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:35:40,445: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:35:40,445: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:35:40,448: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:35:45,454: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:35:45,456: INFO -- logged by: server.py -- the client took a task of type
-2019-03-20 23:35:45,589: INFO -- logged by: server.py -- the db was successfully updated
-2019-03-20 23:35:45,590: INFO -- logged by: server.py -- the GET request from client was successful
-2019-03-20 23:35:45,592: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:35:50,605: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:35:50,610: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:35:50,611: INFO -- logged by: client.py -- the GET request to server has been sent
-2019-03-20 23:35:55,623: INFO -- logged by: server.py -- the client called the server's GET method, so it's asking for task
-2019-03-20 23:35:55,627: INFO -- logged by: server.py -- all the tasks are currently busy or already done, but the GET request from client was successful
-2019-03-20 23:35:55,629: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the client received response and got the task of type 1
+2019-03-21 20:56:16,820: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:16,830: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:21,860: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:21,861: INFO -- logged by: client.py -- the client received response and got the task of type 2
+2019-03-21 20:56:21,861: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:21,898: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:26,915: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:26,916: INFO -- logged by: client.py -- the client received response and got the task of type 3
+2019-03-21 20:56:26,916: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:26,953: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:31,980: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:31,980: INFO -- logged by: client.py -- the client received response and got the task of type 4
+2019-03-21 20:56:31,981: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:32,017: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the client received response and got the task of type 5
+2019-03-21 20:56:37,040: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:37,074: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the client received response and got the task of type 6
+2019-03-21 20:56:42,100: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:42,138: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the client received response and got the task of type 7
+2019-03-21 20:56:47,160: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:47,173: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the client received response and got the task of type 23
+2019-03-21 20:56:52,200: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:52,236: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:56:57,259: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:56:57,260: INFO -- logged by: client.py -- the client received response and got the task of type 24
+2019-03-21 20:56:57,260: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:56:57,294: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:02,314: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:02,315: INFO -- logged by: client.py -- the client received response and got the task of type 25
+2019-03-21 20:57:02,315: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:02,321: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the client received response and got the task of type 26
+2019-03-21 20:57:07,340: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:07,350: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the client received response and got the task of type 27
+2019-03-21 20:57:12,382: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:12,440: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the client received response and got the task of type 28
+2019-03-21 20:57:17,459: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:17,494: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the client received response and got the task of type 29
+2019-03-21 20:57:22,510: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:22,544: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the client received response and got the task of type 30
+2019-03-21 20:57:27,569: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:27,605: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:32,628: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:32,629: INFO -- logged by: client.py -- the client received response and got the task of type 31
+2019-03-21 20:57:32,629: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:32,636: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:37,648: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:37,649: INFO -- logged by: client.py -- the client received response and got the task of type 32
+2019-03-21 20:57:37,649: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:37,684: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the client received response and got the task of type 33
+2019-03-21 20:57:42,699: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:42,735: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the client received response and got the task of type 34
+2019-03-21 20:57:47,759: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:47,795: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the client received response and got the task of type 35
+2019-03-21 20:57:52,814: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:52,851: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the client received response and got the task of type 36
+2019-03-21 20:57:57,879: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:57:57,890: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the client received response and got the task of type 37
+2019-03-21 20:58:02,913: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:58:02,949: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the client received response and got the task of type 38
+2019-03-21 20:58:07,958: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:58:07,995: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the client received response and got the task of type 39
+2019-03-21 20:58:13,015: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:58:13,050: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the client received response and got the task of type 40
+2019-03-21 20:58:18,079: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:58:18,085: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the client received response and got the task of type 41
+2019-03-21 20:58:23,098: INFO -- logged by: client.py -- the client sent task to the handler
+2019-03-21 20:58:23,135: INFO -- logged by: client.py -- the POST request has been sent to the server
+2019-03-21 20:58:28,156: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:28,156: INFO -- logged by: client.py -- no available tasks for now
+2019-03-21 20:58:33,176: INFO -- logged by: client.py -- the GET request to server has been sent
+2019-03-21 20:58:33,176: INFO -- logged by: client.py -- no available tasks for now
