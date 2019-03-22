@@ -1,5 +1,5 @@
 '''
-this module is a server which responds to clients' GET and POST requests, manages them and sends HTTP responses.
+This module is a server which responds to clients' GET and POST requests, manages them and sends HTTP responses.
 it also gives tasks and updates databases using specific modules
 '''
 from http.server import BaseHTTPRequestHandler
@@ -12,7 +12,7 @@ from db_handler import DBUpdater
 class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         '''
-        this method accepts get requests from clients, checks if there are free tasks and gives it to client in response; if there are no available tasks
+        This method accepts get requests from clients, checks if there are free tasks and gives it to client in response; if there are no available tasks
         - the server responds with status 204; the server also logs results of its actions to the log file
         params:
         GET request objects from clients
@@ -35,7 +35,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         #  if everything is fine: there are available tasks - update the db
         logging.info('the handler is going to be called to update the db')
-        if not handler.update_all_get(task_id):
+        if not handler.update_get(task_id):
             logging.warning('the db was not updated, it remained in the previous state')
             self.send_response(501)
             self.end_headers()
@@ -61,9 +61,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         resp = self.rfile.read(content_length)
         res = json.loads(resp.decode())
         logging.info('the server received the POST request from a client')
-        handler = DBUpdater(res=res)
+        handler = DBUpdater()
         logging.info('the server is going to call db handler to update the db')
-        if not handler.update_all_post():
+        if not handler.update_post(res):
             logging.warning('the db was not successfully updated, it remained in the previous state')
             self.send_response(501)
             self.end_headers()

@@ -10,7 +10,7 @@ import json
 from db_handler import DBUpdater
 
 
-class TaskDoer:
+class TaskHandler:
     '''
     this class is the handler of various tasks received by clients; it checks the name of the task choose the logic for its proper handling
     '''
