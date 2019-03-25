@@ -2,11 +2,16 @@ import subprocess as sh
 
 
 
+try:
+    r = sh.run('sh', shell=True, stdout=sh.PIPE, stderr = sh.STDOUT, timeout=3)
 
-r = sh.run('ls ~', shell=True, stdout=sh.PIPE)
+    print(r.returncode)      
 
-print(r.returncode)
-print(r.stdout.decode())
-print(type(r.stdout))
 
+
+except sh.TimeoutExpired:
+    r = sh.run('cat test_file.txt', shell=True, stdout=sh.PIPE, stderr = sh.STDOUT, timeout=3)
+    print(r.returncode)
+    print(r.stdout)
+     
 
