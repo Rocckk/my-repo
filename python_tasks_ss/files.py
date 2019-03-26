@@ -1,8 +1,25 @@
+'''
+This module dumps date into file
+'''
+
+
 class Dumper:
+    '''
+    This class is the data dumper itself, which has 3 methods for recreation of
+    a file, appending to a file, and the counter of occurrences of some date in
+    a file
+    :params
+    file - a text file which is used to dump data
+    '''
     file = 'test.txt'
 
     @classmethod
     def recreate(cls, data):
+        '''
+        This method accepts data, and rewrites a file with it.
+        :params
+        data - str or list, which is a written to a file
+        '''
         if isinstance(data, str):
             with open(cls.file, 'w') as f:
                 f.write(data)
@@ -17,6 +34,11 @@ class Dumper:
 
     @classmethod
     def append(cls, data):
+        '''
+        This method accepts data, and appends it to  a file.
+        :params
+        data - str or list, which is a written to a file
+        '''
         if isinstance(data, str):
             with open(cls.file, 'a') as f:
                 f.write('\n' + data)
@@ -31,6 +53,12 @@ class Dumper:
 
     @classmethod
     def combine(cls, data):
+        '''
+        This method accepts data, checks its uniqueness and if it is indeed
+        unique - appends it to  a file.
+        :params
+        data - str or list, which is a written to a file
+        '''
         with open(cls.file) as f:
             cont = f.read()
             if isinstance(data, str):
@@ -81,6 +109,10 @@ is {}'.format(i, str(num)))
 
 
 def main():
+    '''
+    The main method of the module which initializes lists of input data and 
+    calls Dumper class with it
+    '''
     ips = ['109.169.248.247', '46.72.177.4', '83.167.113.100', '83.167.113.100',
            '95.29.198.15', '109.184.11.34', '91.227.29.79', '90.154.66.233']
     phones = ['111-22-33', '222-33-44', '333-44-55', '444-55-66', '555-66-77', \
@@ -89,9 +121,9 @@ def main():
             'example5.com', 'example6.com', 'example7.com', 'example8.com']
 
 
-    # Dumper.occur_count(ips)
-    #Dumper.recreate(ips)
-    # Dumper.append(ips)
+    Dumper.occur_count(ips)
+    Dumper.recreate(phones)
+    Dumper.append(ips)
     Dumper.combine(phones)
 
 
