@@ -7,3 +7,5 @@ db.sqlite3
 .DS_Store
 *.log
 *.idea
+url_getter_rnv/
+
