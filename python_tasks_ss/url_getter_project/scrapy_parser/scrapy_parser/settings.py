@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for urler project
+# Scrapy settings for scrapy_parser project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'urler'
+BOT_NAME = 'scrapy_parser'
 
-SPIDER_MODULES = ['scrapy_url_getter.spiders']
-NEWSPIDER_MODULE = 'scrapy_url_getter.spiders'
+SPIDER_MODULES = ['scrapy_parser.spiders']
+NEWSPIDER_MODULE = 'scrapy_parser.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'urler (+http://www.yourdomain.com)'
+#USER_AGENT = 'scrapy_parser (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'urler.middlewares.UrlerSpiderMiddleware': 543,
+#    'scrapy_parser.middlewares.ScrapyParserSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'urler.middlewares.UrlerDownloaderMiddleware': 543,
+#    'scrapy_parser.middlewares.ScrapyParserDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'urler.pipelines.UrlerMysqlPipeline': 300,
+    'scrapy_parser.pipelines.ScrapyParserMysqlPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -88,6 +88,3 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-
-#  my loggging settings
-LOG_LEVEL = 'INFO'
