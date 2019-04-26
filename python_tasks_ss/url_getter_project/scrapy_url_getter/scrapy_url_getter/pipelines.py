@@ -93,8 +93,8 @@ class UrlerMysqlPipeline(object):
                     self.logger.warning('insertion failed! for webpage \
 {}'.format(webpage))
             except pymysql.err.DataError:
-                self.logger.warning('the item was not inserted due to problems \
-with the data format')
+                self.logger.warning('the webpage {} was not inserted due to \
+problems with the data format'.format(webpage))
 
     def check_presence_webpage(self, url):
         """
@@ -135,8 +135,8 @@ with the data format')
                     self.logger.warning('update failed for the webpage \
 {}'.format(webpage))
         except pymysql.err.DataError:
-                self.logger.warning('the item was not inserted due to problems \
-with the data format')
+                self.logger.warning('the webpage {} was not updated due to \
+problems with the data format'.format(webpage))
 
     def check_presence_url(self, url, webpage):
         """
@@ -182,8 +182,8 @@ with the data format')
                     self.logger.warning('insertion of url failed for the URL {}\
 !'.format(url))
         except pymysql.err.DataError:
-                self.logger.warning('the item was not inserted due to problems \
-with the data format')
+                self.logger.warning('the URL {} was not inserted due to \
+problems with the data format'.format(url))
 
     def update_url_count(self, webpage_id, url, count):
         """
@@ -203,8 +203,8 @@ with the data format')
                 else:
                     self.logger.warning('update of url {} failed'.format(url))
         except pymysql.err.DataError:
-                self.logger.warning('the item was not inserted due to problems \
-with the data format')
+                self.logger.warning('the URL {} was not inserted due to \
+problems with the data format'.format(url))
 
 
 
