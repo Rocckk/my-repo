@@ -12,6 +12,7 @@ database
 from datetime import datetime
 import pymysql
 from .creds import USER, PASSWORD, DB
+from .logger import get_logger
 
 
 class UrlerMysqlPipeline(object):
@@ -26,10 +27,11 @@ class UrlerMysqlPipeline(object):
         This method is called when the spider is opened; it opens a connection
         to a database, get the value of the webpage which is being scraped from
         a spider and call methods which write the info about the webpage to the
-        database
+        database; also it initiates a logger which will be used in a module
         """
         self.connection = pymysql.connect(host='localhost', user=USER,
                                      password=PASSWORD, db=DB)
+        self.logger = get_logger()
         self.webpage = spider.start_urls[0]
         self.handle_webpage(self.webpage)
 
@@ -82,11 +84,17 @@ class UrlerMysqlPipeline(object):
         webpage
         """
         with self.connection.cursor() as cursor:
-            if cursor.execute("insert into `webpages` (`url`, `time_crawled`,\
-`crawl_count`) values ('{}', '{}', {})".format(webpage, date, str(count))):
-                self.connection.commit()
-            else:
-                print('insertion failed! for webpage {}'.format(webpage))
+            try:
+                if cursor.execute("insert into `webpages` (`url`,\
+`time_crawled`, `crawl_count`) values ('{}', '{}', {})".format(webpage, date,
+                                                               str(count))):
+                    self.connection.commit()
+                else:
+                    self.logger.warning('insertion failed! for webpage \
+{}'.format(webpage))
+            except pymysql.err.DataError:
+                self.logger.warning('the item was not inserted due to problems \
+with the data format')
 
     def check_presence_webpage(self, url):
         """
@@ -118,12 +126,17 @@ class UrlerMysqlPipeline(object):
         date - str, the date when the webpage was scraped
         count - int, the number of times the webpage was scraped
         """
-        with self.connection.cursor() as cursor:
-            if cursor.execute("update `webpages` set `time_crawled` =\
+        try:
+            with self.connection.cursor() as cursor:
+                if cursor.execute("update `webpages` set `time_crawled` =\
 '{}', `crawl_count` = {} where `url` = '{}'".format(date, count, webpage)):
-                self.connection.commit()
-            else:
-                print('update failed for the webpage {}'.format(webpage))
+                    self.connection.commit()
+                else:
+                    self.logger.warning('update failed for the webpage \
+{}'.format(webpage))
+        except pymysql.err.DataError:
+                self.logger.warning('the item was not inserted due to problems \
+with the data format')
 
     def check_presence_url(self, url, webpage):
         """
@@ -159,13 +172,18 @@ class UrlerMysqlPipeline(object):
         url - str, the URL which was found on the webpage
         count - int, the number of times the URL was encountered on the webpage
         """
-        with self.connection.cursor() as cursor:
-            if cursor.execute("insert into `scraped_urls` (`webpage_id`, `url`,\
-`count_on_page`) values ((select `id` from `webpages` where `url` = '{}'), \
-'{}', {})".format(webpage, url, str(count))):
-                self.connection.commit()
-            else:
-                print('insertion of url failed for the URL {}!'.format(url))
+        try:
+            with self.connection.cursor() as cursor:
+                if cursor.execute("insert into `scraped_urls` (`webpage_id`,\
+`url`, `count_on_page`) values ((select `id` from `webpages` where `url` = \
+'{}'), '{}', {})".format(webpage, url, str(count))):
+                    self.connection.commit()
+                else:
+                    self.logger.warning('insertion of url failed for the URL {}\
+!'.format(url))
+        except pymysql.err.DataError:
+                self.logger.warning('the item was not inserted due to problems \
+with the data format')
 
     def update_url_count(self, webpage_id, url, count):
         """
@@ -176,12 +194,17 @@ class UrlerMysqlPipeline(object):
         url - str, the URL which is updated
         count, int, the value which will replace the old count
         """
-        with self.connection.cursor() as cursor:
-            if cursor.execute("update `scraped_urls` set `count_on_page` =\
-'{}' where `url` = '{}' and `webpage_id` = {}".format(count, url, str(webpage_id))):
-                self.connection.commit()
-            else:
-                print('update of url {} failed'.format(url))
+        try:
+            with self.connection.cursor() as cursor:
+                if cursor.execute("update `scraped_urls` set `count_on_page` =\
+'{}' where `url` = '{}' and `webpage_id` = {}".format(count, url,
+                                                      str(webpage_id))):
+                    self.connection.commit()
+                else:
+                    self.logger.warning('update of url {} failed'.format(url))
+        except pymysql.err.DataError:
+                self.logger.warning('the item was not inserted due to problems \
+with the data format')
 
 
 

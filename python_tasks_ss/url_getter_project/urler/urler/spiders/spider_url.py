@@ -5,6 +5,7 @@ Example:
 scrapy crawl x_spider -a url=https://someurl.to_scrapte.com/
 """
 
+import logging
 import re
 import scrapy
 from scrapy.linkextractors import LinkExtractor

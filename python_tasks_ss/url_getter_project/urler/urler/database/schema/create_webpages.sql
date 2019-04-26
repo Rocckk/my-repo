@@ -4,7 +4,7 @@ create table `webpages`(
 
 `id` int unsigned not null auto_increment primary key,
 
-`url` varchar(100), 
+`url` varchar(200),
 
 `time_crawled` datetime,
 
