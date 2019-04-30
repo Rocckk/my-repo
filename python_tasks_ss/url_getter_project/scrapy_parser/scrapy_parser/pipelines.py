@@ -1,3 +1,4 @@
+
 """
 This module is a custom item pipeline which is used to interact with MySQL
 database
@@ -9,7 +10,6 @@ database
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-from datetime import datetime
 import pymysql
 from .creds import USER, PASSWORD, DB
 from .logger import get_logger
@@ -25,186 +25,159 @@ class ScrapyParserMysqlPipeline(object):
     def open_spider(self, spider):
         """
         This method is called when the spider is opened; it opens a connection
-        to a database, get the value of the webpage which is being scraped from
-        a spider and call methods which write the info about the webpage to the
+        to a database, gets the value of the source which is being scraped from
+        a spider and call methods which write the info about the source to the
         database; also it initiates a logger which will be used in a module
         """
         self.connection = pymysql.connect(host='localhost', user=USER,
-                                     password=PASSWORD, db=DB)
+                                          password=PASSWORD, db=DB)
         self.logger = get_logger()
-        self.webpage = spider.start_urls[0]
-        self.handle_webpage(self.webpage)
+        self.handle_source(spider.start_urls[0])
 
     def close_spider(self, spider):
         """
-        This method is called when the spider is closed; it closes the
+        This method is called when the spider is closed; it inserts a count of
+        URLs which were encountered on the source web page and closes the
         connection to a database
         """
+        self.insert_count(spider.start_urls[0])
         self.connection.close()
-
 
     def process_item(self, item, spider):
         """
         This method is called for every item pipeline component: every dict
         yielded by a spider;
-        it checks how many times a single URL is encounted in a dabase and
+        it checks how many times a single URL is encounted in a database and
         controls what to do with it next
         """
-        count_present = self.check_presence_url(item['url'], self.webpage)
-        if not count_present:
-            self.insert_url(self.webpage, item['url'], item['count'])
-        else:
-            if count_present[0] != item['count']:
-                self.update_url_count(count_present[1], item['url'],
-                                      item['count'])
+        source = spider.start_urls[0]
+        present = self.check_presence_url(item['url'])
+        if not present:
+            self.insert_url(item['url'])
+            self.insert_urls_sources(source, item['url'])
         return item
 
-    def handle_webpage(self, webpage):
+    def handle_source(self, source):
         """
         This is the custom method which is used to control what to do with the
-        information on the webpage scraped: it checks if the webpage is already
-        present in a database and if it is there already - updates the db,
-        otherwise - create a new record in a db.
+        information on the source web page scraped: it checks if the web page is
+        already present in a database and if it is not there already - creates a
+        new record in a db.
         params:
-        webpage - str, the URL of the webpage which is being scraped
+        source - str, the URL of the source web page which is being scraped
         """
-        webpage_count = self.check_presence_webpage(webpage)
-        if webpage_count == 1:
-            date = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-            self.insert_webpage(webpage, date, webpage_count)
-        else:
-            date = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
-            self.update_webpage(webpage, date, webpage_count)
+        present = self.check_presence_source(source)
+        if not present:
+            self.insert_source(source)
 
-    def insert_webpage(self, webpage, date, count):
+    def insert_source(self, source):
         """
-        This is the custom method which inserts a new record about a webpage
-        scraped into a db
+        This is the custom method which inserts a new record about a source web
+        page scraped into a db
         params:
-        webpage
+        source - the URL of the source web page which has been scraped
         """
         with self.connection.cursor() as cursor:
             try:
-                if cursor.execute("insert into `webpages` (`url`,\
-`time_crawled`, `crawl_count`) values ('{}', '{}', {})".format(webpage, date,
-                                                               str(count))):
+                if cursor.execute("insert into `sources` (`url`) values ('{}')".format(source)):
                     self.connection.commit()
                 else:
-                    self.logger.warning('insertion failed! for webpage \
-{}'.format(webpage))
+                    self.logger.warning('insertion failed! for source \
+{}'.format(source))
             except pymysql.err.DataError:
-                self.logger.warning('the webpage {} was not inserted due to \
-problems with the data format'.format(webpage))
+                self.logger.warning('the source {} was not inserted due to \
+problems with the data format'.format(source))
 
-    def check_presence_webpage(self, url):
+    def check_presence_source(self, url):
         """
         This is the custom method which checks if the scraped webpage is
-        already in the database; if it is present - it increases its count and
-        returns this count
+        already in the database; if it is present - it returns True,
+        otherwise - False
         params:
-        url - str, the URL of the webpage which is checked
+        url - str, the URL of the source web page which is checked
         returns:
-        1 - if there is not such webpage in a database (it will be the 1-st 
+        False - if there is not such web page in a database (it will be the 1-st
         insertion)
-        otherwise - the count of webpage(the amount of times is was was scraped
-        already increased by 1)
+        otherwise - True
         """
         with self.connection.cursor() as cursor:
-            present = cursor.execute("select * from `webpages` where `url` =\
+            present = cursor.execute("select * from `sources` where `url` =\
 '{}'".format(url))
             if present:
-                record = cursor.fetchone()
-                return record[3] + 1
-            return 1
-
-    def update_webpage(self, webpage, date, count):
-        """
-        This is the custom method which updates the information on the scraped
-        webpage in the database
-        params:
-        webpage - str, the URL of the webpage which is checked
-        date - str, the date when the webpage was scraped
-        count - int, the number of times the webpage was scraped
-        """
-        try:
-            with self.connection.cursor() as cursor:
-                if cursor.execute("update `webpages` set `time_crawled` =\
-'{}', `crawl_count` = {} where `url` = '{}'".format(date, count, webpage)):
-                    self.connection.commit()
-                else:
-                    self.logger.warning('update failed for the webpage \
-{}'.format(webpage))
-        except pymysql.err.DataError:
-                self.logger.warning('the webpage {} was not updated due to \
-problems with the data format'.format(webpage))
-
-    def check_presence_url(self, url, webpage):
-        """
-        This is the custom method which checks whether a URL which was found
-        on the scraped webpage is already in tbe records in the db
-        params:
-        url - str, the URL which was found
-        webpage - str, the webpage which has been scraped
-        returns:
-        False - if such URL is not in the db
-        (count, webpage_id) - tuple, if such URL is already found in the db and
-        it was scraped from the same wabpage;
-        count - the amount of times it was found on the webpage
-        webpage_id - the id of the webpage it was found on
-        """
-        with self.connection.cursor() as cursor:
-            if cursor.execute("select `id` from `webpages` where `url` =\
-'{}'".format(webpage)):
-                webpage_id = cursor.fetchone()[0]
-            present = cursor.execute("select `count_on_page` from \
-`scraped_urls` where `url` = '{}' and `webpage_id` = {}".format(url, webpage_id))
-            if present:
-                count = cursor.fetchone()[0]
-                return (count, webpage_id)
+                return True
             return False
 
-    def insert_url(self, webpage, url, count):
+    def insert_count(self, source):
         """
-        This is the custom method which inserts a new record about a certain
-        URL which was found on the webpage scraped
-        params:
-        webpage, str, the URL of the webpage that has been scraped
-        url - str, the URL which was found on the webpage
-        count - int, the number of times the URL was encountered on the webpage
+        This method checks how many URLs are encountered on a scraped source
+        web page und updates the db with this number
+        :param source: str, the URL of the source web page
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("insert into `scraped_urls` (`webpage_id`,\
-`url`, `count_on_page`) values ((select `id` from `webpages` where `url` = \
-'{}'), '{}', {})".format(webpage, url, str(count))):
+                if cursor.execute("select count(`url_id`) from `urls_to_sources` where `source_id` \
+= (select `id` from `sources` where `url` = '{}')".format(source)):
+                    count = cursor.fetchone()[0]
+            with self.connection.cursor() as cursor:
+                if cursor.execute("update `sources` set `count_of_urls` = {}\
+ where `url` = '{}'".format(count, source)):
+                    self.connection.commit()
+                else:
+                    self.logger.warning('update failed for the source \
+        # {}'.format(source))
+        except pymysql.err.DataError:
+            self.logger.warning('the source {} was not updated due to \
+ problems with the data format'.format(source))
+
+    def check_presence_url(self, url):
+        """
+        This method checks if an URL is already inserted into a db or not
+        :param url: str, the URL of the link found on the scraped web page
+        :return:
+        True - if such a URL has been found
+        False - otherwise
+        """
+        with self.connection.cursor() as cursor:
+            if cursor.execute("select * from `urls` where `url` =\
+'{}'".format(url)):
+                return True
+            return False
+
+    def insert_url(self, url):
+        """
+        This is the custom method which inserts a new record about a certain
+        URL which was found on the web page scraped
+        params:
+        url - str, the URL which was found on the source web page
+        """
+        try:
+            with self.connection.cursor() as cursor:
+                if cursor.execute("insert into `urls` (`url`) values ('{}')".format(url)):
                     self.connection.commit()
                 else:
                     self.logger.warning('insertion of url failed for the URL {}\
 !'.format(url))
         except pymysql.err.DataError:
-                self.logger.warning('the URL {} was not inserted due to \
+            self.logger.warning('the URL {} was not inserted due to \
 problems with the data format'.format(url))
 
-    def update_url_count(self, webpage_id, url, count):
+    def insert_urls_sources(self, source, url):
         """
-        This is the custom method which updates the count of URLs found on the
-        webpage in case this count changed
-        params:
-        webpage_id - int, the ID of the webpage on which the URL was found
-        url - str, the URL which is updated
-        count, int, the value which will replace the old count
+        This is the custom method which insert new values it the table `urls_to_
+        sources`
+        :param source: str, the URL of the source web page which has been
+        scraped
+        :param url: str, the URL which was found on the source web page
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("update `scraped_urls` set `count_on_page` =\
-'{}' where `url` = '{}' and `webpage_id` = {}".format(count, url,
-                                                      str(webpage_id))):
+                if cursor.execute("insert into `urls_to_sources` (`url_id`, \
+        `source_id`) values ((select `id` from `urls` where `url` = '{}'), (select `id` from \
+        `sources` where `url` = '{}'))".format(url, source)):
                     self.connection.commit()
                 else:
-                    self.logger.warning('update of url {} failed'.format(url))
+                    self.logger.warning('insertion into table `urls_to_sources` \
+failed for the URL {}!'.format(url))
         except pymysql.err.DataError:
-                self.logger.warning('the URL {} was not inserted due to \
+            self.logger.warning('the URL {} was not inserted due to \
 problems with the data format'.format(url))
-
-
- 

@@ -8,4 +8,6 @@ db.sqlite3
 *.log
 *.idea
 url_getter_rnv/
+url_getter_venv/
+creds.py
 

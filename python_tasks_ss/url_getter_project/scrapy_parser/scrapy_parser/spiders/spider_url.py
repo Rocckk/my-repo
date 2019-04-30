@@ -5,7 +5,6 @@ Example:
 scrapy crawl x_spider -a url=https://someurl.to_scrapte.com/
 """
 
-import logging
 import re
 import scrapy
 from scrapy.linkextractors import LinkExtractor
@@ -54,22 +53,22 @@ class UrlSpider(scrapy.Spider):
                            'pluginspage', 'action', 'profile', 'manifest',
                            'xmlns', 'lowsrc', 'classid', 'data', 'itemtype')
         self.pattern = \
-        r"https?://[^\s,\'\"\)\(\}\{\<\\]+\.+[^\s,\'\"\)\(\}\{\<\\]+"
+            r"https?://[^\s,\'\"\)\(\}\{\<\\]+\.+[^\s,\'\"\)\(\}\{\<\\]+"
         self.tag_attr_combos = ('a[href]', 'applet[archive]', 'applet[codebase]',
-                               'base[href]', 'bgsound[src]', 'blockquote[cite]',
-                               'body[background]', 'button[formaction]',
-                               'command[icon]', 'del[cite]', 'div[itemtype]',
-                               'embed[src]', 'form[action]', 'frame[src]',
-                               'head[profile]', 'html[manifest]', 'html[xmlns]',
-                               'iframe[src]', 'img[src]', 'input[formaction]',
-                               'input[src]', 'ins[cite]', 'isindex[action]',
-                               'link[href]', 'meta[itemtype]',
-                               'object[archive]', 'object[codebase]', 'q[cite]',
-                               'source[src]', 'svg[itemtype]',
-                               'table[background]', 'td[background]',
-                               'th[background]', 'video[src]',
-                               'embed[pluginspage]', 'img[lowsrc]',
-                               'object[classid]', 'object[data]')
+                                'base[href]', 'bgsound[src]', 'blockquote[cite]',
+                                'body[background]', 'button[formaction]',
+                                'command[icon]', 'del[cite]', 'div[itemtype]',
+                                'embed[src]', 'form[action]', 'frame[src]',
+                                'head[profile]', 'html[manifest]', 'html[xmlns]',
+                                'iframe[src]', 'img[src]', 'input[formaction]',
+                                'input[src]', 'ins[cite]', 'isindex[action]',
+                                'link[href]', 'meta[itemtype]',
+                                'object[archive]', 'object[codebase]', 'q[cite]',
+                                'source[src]', 'svg[itemtype]',
+                                'table[background]', 'td[background]',
+                                'th[background]', 'video[src]',
+                                'embed[pluginspage]', 'img[lowsrc]',
+                                'object[classid]', 'object[data]')
         self.extractor = LinkExtractor(process_value=self.regex_link,
                                        tags=self.link_tags,
                                        attrs=self.link_attrs, unique=False,
@@ -99,8 +98,7 @@ class UrlSpider(scrapy.Spider):
         params:
         response - the Response object to parse
         returns:
-        a dict containing the url and the number of times it is encountered on
-        the webpage scraped
+        a dict containing the url
         """
         extracted_links = self.extractor.extract_links(response)
         list_of_links = [i.url for i in extracted_links]
@@ -113,20 +111,8 @@ class UrlSpider(scrapy.Spider):
                         list_of_links.append(match.group())
                         i = i.replace(match.group(), '', 1)
                     else:
-                       i = i.replace(match.group(), '', 1)
+                        i = i.replace(match.group(), '', 1)
                 else:
                     i = i.replace('http', '', 1)
-        list_length = len(list_of_links)
-        while list_of_links:
-            url = list_of_links[0]
-            count = list_of_links.count(url)
-            while url in list_of_links:
-                list_of_links.remove(url)
-            yield {'url' : url, 'count': count}
-
-
-
-
-
-
- 
+        for i in list_of_links:
+            yield {'url': i}
