@@ -181,3 +181,11 @@ failed for the URL {}!'.format(url))
         except pymysql.err.DataError:
             self.logger.warning('the URL {} was not inserted due to \
 problems with the data format'.format(url))
+
+
+class ScrapyParserFlaskPipeline(object):
+
+    def process_item(self, item, spider):
+        print("******************")
+
+

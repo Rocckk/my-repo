@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>URL getter project</title>
+    </head>
+<body>
+    <div>
+        {%if urls%}
+        <p>
+        The URLs found on the web page {{source}} are:
+        </p>
+        <ul type="square">
+        {% for url in urls%}
+        <li><a href="{{url}}">{{url}}</li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>
+        No URLs were found on the webpage {{source}}
+        </p>    
+        {% endif %}
+    </div>
+</body>
+</html> 
