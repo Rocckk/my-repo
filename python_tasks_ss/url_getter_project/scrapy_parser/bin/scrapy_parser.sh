@@ -1,6 +1,8 @@
 #!/usr/local/bin/bash
-
-export PYTHONPATH="/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_getter                                                                                                                                                             _project/scrapy_parser/src"
+cur_location=$(pwd)
+cut_pwd=${cur_location%/*}
+module_path="$cut_pwd/src"
+export PYTHONPATH="$module_path"
 
 if [ $1 ]; then
     cd ../etc/

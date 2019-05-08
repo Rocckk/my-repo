@@ -14,7 +14,7 @@ def run(source):
     returns:
     True - if the script ran successfully, otherwise - False
     '''
-    proc = subprocess.run("../bin/scrapy_parser.sh {}".format(source),
+    proc = subprocess.run("../bin/scrapy_parser.sh '{}'".format(source),
                           shell=True)
     if proc.returncode == 0:
         return True

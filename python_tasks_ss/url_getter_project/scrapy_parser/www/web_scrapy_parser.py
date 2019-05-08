@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 from db_connector import FlaskDbConnector
 
 
@@ -11,12 +11,11 @@ def index():
         return render_template('index.html')
     elif request.method == "POST":
         source = request.form['url']
-         with FlaskDbConnector(source) as value:
+        with FlaskDbConnector(source) as value:
             if value:
                 if isinstance(value, int):
                     if value == 204:
-                        return render_template('result.html', source=source),\
-                               value
+                        return render_template('result.html', source=source)
                     elif value < 500:
                         return "Client error occurred", value
                     elif value >= 500:

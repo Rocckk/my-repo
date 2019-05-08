@@ -51,13 +51,13 @@ class FlaskDbConnector:
                     return links
                 else:
                     return 204
-            if script_loader.run(self.source):
+            elif script_loader.run(self.source):
                 self.restart_conn()
                 links = self.get_links()
                 if links:
                     return links
                 else:
-                    return 500
+                    return 204
             self.logger.warning("the scrapy_parser script did not run well!")
             return 500
         self.logger.warning("the source URL was not provided to the DB \

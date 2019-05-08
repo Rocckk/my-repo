@@ -124,12 +124,9 @@ problems with the data format'.format(source))
 = (select `id` from `sources` where `url` = '{}')".format(self.mod_source)):
                     count = cursor.fetchone()[0]
             with self.connection.cursor() as cursor:
-                if cursor.execute("update `sources` set `count_of_urls` = {}\
- where `url` = '{}'".format(count, self.mod_source)):
+                if cursor.execute("update `sources` set `count_of_urls` = {} \
+where `url` = '{}'".format(count, self.mod_source)):
                     self.connection.commit()
-                else:
-                    self.logger.warning('update failed for the source \
-        # {}'.format(self.mod_source))
         except pymysql.err.DataError:
             self.logger.warning('the source {} was not updated due to \
  problems with the data format'.format(self.mod_source))
