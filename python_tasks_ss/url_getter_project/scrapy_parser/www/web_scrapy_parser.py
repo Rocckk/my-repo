@@ -11,10 +11,15 @@ def index():
         return render_template('index.html')
     elif request.method == "POST":
         source = request.form['url']
-        with FlaskDbConnector(source) as links:
-            if links:
-                urls = links
-                return render_template('result.html', source=source, urls=urls) 
-            else: 
-                print('no links were found')
-                return render_template('result.html', source=source)
+         with FlaskDbConnector(source) as value:
+            if value:
+                if isinstance(value, int):
+                    if value == 204:
+                        return render_template('result.html', source=source),\
+                               value
+                    elif value < 500:
+                        return "Client error occurred", value
+                    elif value >= 500:
+                        return "Server error occurred", value
+                urls = value
+                return render_template('result.html', source=source, urls=urls)

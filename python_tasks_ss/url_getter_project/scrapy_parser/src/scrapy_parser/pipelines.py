@@ -1,4 +1,3 @@
-
 """
 This module is a custom item pipeline which is used to interact with MySQL
 database
@@ -32,7 +31,8 @@ class ScrapyParserMysqlPipeline(object):
         self.connection = pymysql.connect(host='localhost', user=USER,
                                           password=PASSWORD, db=DB)
         self.logger = get_logger()
-        self.handle_source(spider.start_urls[0])
+        source = spider.start_urls[0]
+        self.handle_source(source)
 
     def close_spider(self, spider):
         """
@@ -40,7 +40,7 @@ class ScrapyParserMysqlPipeline(object):
         URLs which were encountered on the source web page and closes the
         connection to a database
         """
-        self.insert_count(spider.start_urls[0])
+        self.insert_count()
         self.connection.close()
 
     def process_item(self, item, spider):
@@ -50,11 +50,10 @@ class ScrapyParserMysqlPipeline(object):
         it checks how many times a single URL is encounted in a database and
         controls what to do with it next
         """
-        source = spider.start_urls[0]
         present = self.check_presence_url(item['url'])
         if not present:
             self.insert_url(item['url'])
-            self.insert_urls_sources(source, item['url'])
+            self.insert_urls_sources(self.mod_source, item['url'])
         return item
 
     def handle_source(self, source):
@@ -66,9 +65,14 @@ class ScrapyParserMysqlPipeline(object):
         params:
         source - str, the URL of the source web page which is being scraped
         """
-        present = self.check_presence_source(source)
+        fragment_start = source.find("#")
+        if fragment_start != -1:
+            self.mod_source = source[:fragment_start].strip(" /")
+        else:
+            self.mod_source = source.strip(" /")
+        present = self.check_presence_source(self.mod_source)
         if not present:
-            self.insert_source(source)
+            self.insert_source(self.mod_source)
 
     def insert_source(self, source):
         """
@@ -79,7 +83,8 @@ class ScrapyParserMysqlPipeline(object):
         """
         with self.connection.cursor() as cursor:
             try:
-                if cursor.execute("insert into `sources` (`url`) values ('{}')".format(source)):
+                if cursor.execute("insert into `sources` (`url`) values ('{}')\
+".format(source)):
                     self.connection.commit()
                 else:
                     self.logger.warning('insertion failed! for source \
@@ -107,7 +112,7 @@ problems with the data format'.format(source))
                 return True
             return False
 
-    def insert_count(self, source):
+    def insert_count(self):
         """
         This method checks how many URLs are encountered on a scraped source
         web page und updates the db with this number
@@ -115,19 +120,19 @@ problems with the data format'.format(source))
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("select count(`url_id`) from `urls_to_sources` where `source_id` \
-= (select `id` from `sources` where `url` = '{}')".format(source)):
+                if cursor.execute("select count(`url_id`) from `urls_to_sources`                                                                                                                                                              where `source_id` \
+= (select `id` from `sources` where `url` = '{}')".format(self.mod_source)):
                     count = cursor.fetchone()[0]
             with self.connection.cursor() as cursor:
                 if cursor.execute("update `sources` set `count_of_urls` = {}\
- where `url` = '{}'".format(count, source)):
+ where `url` = '{}'".format(count, self.mod_source)):
                     self.connection.commit()
                 else:
                     self.logger.warning('update failed for the source \
-        # {}'.format(source))
+        # {}'.format(self.mod_source))
         except pymysql.err.DataError:
             self.logger.warning('the source {} was not updated due to \
- problems with the data format'.format(source))
+ problems with the data format'.format(self.mod_source))
 
     def check_presence_url(self, url):
         """
@@ -152,7 +157,8 @@ problems with the data format'.format(source))
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("insert into `urls` (`url`) values ('{}')".format(url)):
+                if cursor.execute("insert into `urls` (`url`) values ('{}')\
+".format(url)):
                     self.connection.commit()
                 else:
                     self.logger.warning('insertion of url failed for the URL {}\
@@ -172,20 +178,13 @@ problems with the data format'.format(url))
         try:
             with self.connection.cursor() as cursor:
                 if cursor.execute("insert into `urls_to_sources` (`url_id`, \
-        `source_id`) values ((select `id` from `urls` where `url` = '{}'), (select `id` from \
-        `sources` where `url` = '{}'))".format(url, source)):
+        `source_id`) values ((select `id` from `urls` where `url` = '{}'), \
+(select `id` from `sources` where `url` = '{}'))".format(url, source)):
                     self.connection.commit()
                 else:
-                    self.logger.warning('insertion into table `urls_to_sources` \
+                    self.logger.warning('insertion into table `urls_to_sources`                                                                                                                                                              \
 failed for the URL {}!'.format(url))
         except pymysql.err.DataError:
             self.logger.warning('the URL {} was not inserted due to \
 problems with the data format'.format(url))
-
-
-class ScrapyParserFlaskPipeline(object):
-
-    def process_item(self, item, spider):
-        print("******************")
-
 

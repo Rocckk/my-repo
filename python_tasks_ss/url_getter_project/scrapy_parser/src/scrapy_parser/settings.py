@@ -65,8 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'scrapy_parser.pipelines.ScrapyParserMysqlPipeline': 300,
-    'scrapy_parser.pipelines.ScrapyParserFlaskPipeline': 400
+    'scrapy_parser.pipelines.ScrapyParserMysqlPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -89,3 +88,6 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# setting logging level
+LOG_LEVEL = "INFO"
