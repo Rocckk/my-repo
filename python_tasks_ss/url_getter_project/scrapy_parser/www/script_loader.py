@@ -14,11 +14,11 @@ def run(source):
     returns:
     True - if the script ran successfully, otherwise - False
     '''
-    pwd = subprocess.run("pwd", shell=True, stdout=subprocess.PIPE,
-                         encoding='utf-8')
-    if not pwd.stdout.endswith('www'):
+    pwd = os.getcwd()
+    if not pwd.endswith('www'):
         os.chdir('www')
     proc = subprocess.run("../bin/scrapy_parser.sh '{}'".format(source),
                           shell=True)
+    os.chdir(pwd)
     if proc.returncode == 0:
         return True

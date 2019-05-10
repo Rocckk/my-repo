@@ -2,12 +2,11 @@
 
 import pymysql
 import sys
-import os
-print(os.getcwd())
+print("&&&&&&", sys.path)
 sys.path.append("/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_\
-getter_project/scrapy_parser/src/")
-from scrapy_parser.creds import USER, PASSWORD, DB
-from scrapy_parser.logger import get_logger
+getter_project/scrapy_parser/")
+from src.scrapy_parser.creds import USER, PASSWORD, DB
+from src.scrapy_parser.logger import get_logger
 import script_loader
 
 class FlaskDbConnector:

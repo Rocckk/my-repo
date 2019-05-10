@@ -11,6 +11,7 @@ def get_logger():
     logger and returns it for use
     """
     logger = logging.getLogger(__name__)
+    logger.setLevel('INFO')
     handler = logging.StreamHandler()
     formatter = logging.Formatter('%(asctime)s: %(levelname)s -- logged by: \
 %(filename)s -- %(message)s')
