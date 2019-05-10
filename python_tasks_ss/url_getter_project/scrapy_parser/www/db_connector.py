@@ -2,7 +2,6 @@
 
 import pymysql
 import sys
-print("&&&&&&", sys.path)
 sys.path.append("/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_\
 getter_project/scrapy_parser/")
 from src.scrapy_parser.creds import USER, PASSWORD, DB

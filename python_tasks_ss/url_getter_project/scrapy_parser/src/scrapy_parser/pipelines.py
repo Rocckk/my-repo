@@ -53,7 +53,7 @@ class ScrapyParserMysqlPipeline:
         present = self.check_presence_url(item['url'])
         if not present:
             self.insert_url(item['url'])
-            self.insert_urls_sources(self.mod_source, item['url'])
+        self.insert_urls_sources(self.mod_source, item['url'])
         return item
 
     def handle_source(self, source):
