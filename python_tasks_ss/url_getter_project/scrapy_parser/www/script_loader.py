@@ -3,6 +3,8 @@ this module loads the shell scrip which launches the scrapy_parser project
 and scrapes the links from a given source web pave
 """
 import os
+import sys
+import os.path
 import subprocess
 
 def run(source):
@@ -14,11 +16,11 @@ def run(source):
     returns:
     True - if the script ran successfully, otherwise - False
     '''
-    pwd = os.getcwd()
-    if not pwd.endswith('www'):
-        os.chdir('www')
+    pwd = os.path.dirname(__file__)
+    os.chdir(pwd)
+    test = subprocess.run("whoami", shell=True, stdout=subprocess.PIPE)
+    print(test.stdout)
     proc = subprocess.run("../bin/scrapy_parser.sh '{}'".format(source),
                           shell=True)
-    os.chdir(pwd)
     if proc.returncode == 0:
         return True

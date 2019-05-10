@@ -10,7 +10,7 @@ def index():
     if request.method == "GET":
         return render_template('index.html')
     elif request.method == "POST":
-        source = request.form['url']
+        source = request.form['source']
         with FlaskDbConnector(source) as value:
             if value:
                 if isinstance(value, int):

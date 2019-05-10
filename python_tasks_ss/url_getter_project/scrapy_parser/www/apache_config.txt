@@ -1,0 +1,14 @@
+76 <VirtualHost *:80>
+ 77     WSGIDaemonProcess igor python-home=/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_getter_project/scrap_venv python-path=/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_getter_project/scrapy_parser/www
+ 78     WSGIProcessGroup igor
+ 79     WSGIScriptAlias / /usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_getter_project/scrapy_parser/www/web_scrapy_parser.wsgi
+ 80       <Directory /usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_getter_project/scrapy_parser/www/>
+ 81         <Files web_scrapy_parser.wsgi>
+ 82             Require all granted
+ 83         </Files>
+ 84      </Directory>
+ 85    # Alias /static /usr/local/www/apache24/apachy/static/
+ 86    # <Directory /usr/local/www/apache24/apachy/static>
+ 87    #     Require all granted
+ 88    # </Directory>
+ 89 </VirtualHost>.
