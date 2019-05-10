@@ -14,7 +14,7 @@ from .creds import USER, PASSWORD, DB
 from .logger import get_logger
 
 
-class ScrapyParserMysqlPipeline(object):
+class ScrapyParserMysqlPipeline:
     """
     This class implements a built-in scrapy item pipeline; it opens connection
     with a database, inserts into it the information about a scraped webpage
@@ -120,8 +120,9 @@ problems with the data format'.format(source))
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("select count(`url_id`) from `urls_to_sources`                                                                                                                                                              where `source_id` \
-= (select `id` from `sources` where `url` = '{}')".format(self.mod_source)):
+                if cursor.execute("select count(`url_id`) from \
+`urls_to_sources` where `source_id` = (select `id` from `sources` where `url` =\
+'{}')".format(self.mod_source)):
                     count = cursor.fetchone()[0]
             with self.connection.cursor() as cursor:
                 if cursor.execute("update `sources` set `count_of_urls` = {} \
@@ -179,9 +180,8 @@ problems with the data format'.format(url))
 (select `id` from `sources` where `url` = '{}'))".format(url, source)):
                     self.connection.commit()
                 else:
-                    self.logger.warning('insertion into table `urls_to_sources`                                                                                                                                                              \
-failed for the URL {}!'.format(url))
+                    self.logger.warning('insertion into table `urls_to_sources`\
+ failed for the URL {}!'.format(url))
         except pymysql.err.DataError:
             self.logger.warning('the URL {} was not inserted due to \
 problems with the data format'.format(url))
-

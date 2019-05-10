@@ -2,6 +2,8 @@
 
 import pymysql
 import sys
+import os
+print(os.getcwd())
 sys.path.append("/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_\
 getter_project/scrapy_parser/src/")
 from scrapy_parser.creds import USER, PASSWORD, DB
@@ -129,4 +131,3 @@ because scraping on this page is likely forbidden by robots.txt file\
         self.cursor.close()
         self.connection.close()
         self.logger.info("closed db connection")
-

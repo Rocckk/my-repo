@@ -13,7 +13,7 @@ from scrapy.linkextractors import LinkExtractor
 class UrlSpider(scrapy.Spider):
     """
     this class is a spider itself which extends the abilities of built-in
-    scrapy.Spider class; 
+    scrapy.Spider class;
     it defines how a certain webpage will be scraped: form which tags and
     attributes the links will be extracted and also enables extraction of links
     from texrt import nodes
@@ -60,7 +60,8 @@ class UrlSpider(scrapy.Spider):
                                 'command[icon]', 'del[cite]', 'div[itemtype]',
                                 'embed[src]', 'form[action]', 'frame[src]',
                                 'head[profile]', 'html[manifest]', 'html[xmlns]',
-                                'iframe[src]', 'img[src]', 'input[formaction]',
+                                'html[itemtype]', 'iframe[src]', 'img[src]',
+                                'input[formaction]',
                                 'input[src]', 'ins[cite]', 'isindex[action]',
                                 'link[href]', 'meta[itemtype]',
                                 'object[archive]', 'object[codebase]', 'q[cite]',
@@ -90,7 +91,7 @@ class UrlSpider(scrapy.Spider):
 
     def parse(self, response):
         """
-        this method is  a modified method is in charge of processing the 
+        this method is  a modified method is in charge of processing the
         response and returning scraped data: it accepts a Response object
         received from the scraped webpage, extracts the links from it and
         creates a list of those links; later on, this list is looped through
