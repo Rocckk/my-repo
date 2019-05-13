@@ -1,0 +1,16 @@
+.top {
+color: red;
+}
+
+div.index{
+text-align: center;
+}
+
+input[src]{
+width: 50px;
+height:50px;
+}
+
+#back {
+text-align:center;
+}

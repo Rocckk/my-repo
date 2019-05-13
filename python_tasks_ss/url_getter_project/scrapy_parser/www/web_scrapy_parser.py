@@ -17,7 +17,7 @@ def handle_form():
         source = request.form['source']
         with FlaskDbConnector(source) as value:
             if value:
-                if isinstance(value[0], int):
+                if isinstance(value, int):
                     if value == 204:
                         return render_template('result.html', source=source)
                     elif value < 500:
