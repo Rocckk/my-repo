@@ -1,0 +1,8 @@
+CREATE TABLE `users`(
+`id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+`username` VARCHAR(100),
+`created` DATETIME,
+`group_id` INT UNSIGNED NOT NULL,
+PRIMARY KEY (`id`),
+FOREIGN KEY (`group_id`) REFERENCES `groups`(`id`)
+)ENGINE InnoDB DEFAULT CHARSET=utf8;
