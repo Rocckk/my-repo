@@ -48,14 +48,16 @@ class FlaskDbConnector:
             if present:
                 links = self.get_links()
                 if links:
-                    return links
+                    top = self.get_top_links(links)
+                    return (links, present, top)
                 else:
                     return 204
             elif script_loader.run(self.source):
                 self.restart_conn()
                 links = self.get_links()
                 if links:
-                    return links
+                    top = self.get_top_links(links)
+                    return (links, present, top)
                 else:
                     return 204
             self.logger.warning("the scrapy_parser script did not run well!")
@@ -95,6 +97,14 @@ sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` on \
         self.logger.info("no links were found in the db for the source URL {}\
 because scraping on this page is likely forbidden by robots.txt file\
 ".format(self.source))
+
+    def get_top_links(self, links):
+        top_counts = {l: links.count(l) for l in links if links.count(l) > 1}
+        if top_counts:
+            max_value = max(top_counts.values())
+            top = {k: v for (k,v) in top_counts.items() if v == max_value}
+            return top
+
 
     def restart_conn(self):
         """

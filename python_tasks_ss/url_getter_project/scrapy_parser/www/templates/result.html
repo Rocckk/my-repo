@@ -6,12 +6,31 @@
 <body>
     <div>
         {%if urls%}
+            {% if present %}
+            <p>
+            This web page has already been scraped before and is already in the
+            database.
+            </p>
+            {% else %}
+            <p>
+            This web page has just been scraped.
+            </p>
+            {% endif %}
+        {% if top %}
+            <p>
+            Top links on this webpage are:
+            </p>
+            <ul type="circle">
+            {% for k,v in top.items() %}
+            <li><a href="{{k}}">{{k}}</a>: {{v}} times</li>
+            {% endfor %}
+        {% endif %} 
         <p>
-        The URLs found on the web page {{source}} are:
+         The URLs found on the web page {{source}} are:
         </p>
         <ul type="square">
             {% for url in urls%}
-            <li><a href="{{url}}">{{url}}</li>
+            <li><a href="{{url}}">{{url}}</a></li>
             {% endfor %}
         </ul>
         {% else %}
