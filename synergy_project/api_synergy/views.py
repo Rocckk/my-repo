@@ -1,13 +1,12 @@
 from datetime import datetime
 from .models import Users, Groups
-# from .serializers import UsersSerializer, GroupsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
 class UsersHandler(APIView):
 	def get(self, request):
-		print(Users.objects.count())
+		count = Users.objects.count()
 		users = [
 			{'id': user.id, 'username': user.username, 'created': user.created,
 			 'group': Groups.objects.filter(id=user.group_id_id)[0].name} for
@@ -39,7 +38,7 @@ class UsersHandler(APIView):
 
 class GroupsHanlder(APIView):
 	def get(self, request):
-		print(Groups.objects.count())
+		count = Groups.objects.count()
 		groups = [
 			{'id': group.id, 'name': group.name,
 			 'description': group.description} for
@@ -48,6 +47,7 @@ class GroupsHanlder(APIView):
 
 	def post(self, request):
 		data = request.POST
+		print(data)
 		count = Groups.objects.count()
 		new_group = Groups(name=data['name'], description=data['description'],
 						   id=count + 1)
@@ -62,7 +62,6 @@ class GroupsHanlder(APIView):
 
 	def delete(self, request):
 		data = request.POST
-		print(request.body)
 		group_id = data['id']
 		gr_has_users = Users.objects.filter(group_id_id=data['id']).count()
 		if not gr_has_users:

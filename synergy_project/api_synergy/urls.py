@@ -8,5 +8,6 @@ urlpatterns = [
 	path('delete_user/', UsersHandler.as_view()),
 	path('groups/', GroupsHanlder.as_view()),
 	path('add_group/', GroupsHanlder.as_view()),
-	path('delete_group/', GroupsHanlder.as_view())
+	path('delete_group/', GroupsHanlder.as_view()),
+	path('edit_group/', GroupsHanlder.as_view())
 ]
