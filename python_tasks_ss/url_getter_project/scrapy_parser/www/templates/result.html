@@ -1,14 +1,18 @@
-<!doctype html>
-{% extends 'index.html' %}
+ <!doctype html>
 <html>
     <head>
         <title>URL getter project</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet", href="{{url_for('static', filename='style.css')}}">
     </head>
-<body>
-    {% block result %}  
+    <body onload="func()">
+    <div class="index">
+        <form method="post" action="{{ url_for('handle_form') }}">
+            <input  placeholder="enter the URL of the web page you would like to get the links from here" required type="url", name="source">
+            <input type="image" src="static/images/search.png">
+         </form>
+    </div>
     <div>
         <br>
         {%if urls%}
@@ -22,35 +26,76 @@
             This web page has just been scraped.
             </p>
             {% endif %}
-        {% if top %}
-            <p class="top">
-            Top links on this webpage are:
+            <div id="general_top">
+                <p>Total statistics:</p>
+                <form>
+                    <button formaction="{{ url_for('get_tops', number=100) }}" 
+                            formmethod="GET"
+                            formtarget="_blank">
+                        Top 100
+                    </button>
+                    <button formaction="{{ url_for('get_tops', number=50) }}" 
+                            formmethod="GET"
+                            formtarget="_blank">
+                        Top 50
+                    </button>
+                    <button formaction="{{ url_for('get_tops', number=20) }}" 
+                            formmethod="GET"
+                            formtarget="_blank">
+                        Top 20
+                    </button>
+                    <button formaction="{{ url_for('get_tops', number=10) }}" 
+                            formmethod="GET"
+                            formtarget="_blank">
+                        Top 10
+                    </button>
+                </form>
+            </div>      
+            {% if top %}
+                <p class="top">
+                Top links on this webpage are:
+                </p>
+                <ul type="circle">
+                {% for k,v in top.items() %}
+                <li class="top"><a href="{{k}}">{{k}}</a>: {{v}} occurrences</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            <p class="top">Total number of URLs found on this web page: {{total}}</p>
+            <br>
+            <p>
+            <a name="table_top">The URLs found on the web page {{source}} are:</a>
             </p>
-            <ul type="circle">
-            {% for k,v in top.items() %}
-            <li class="top"><a href="{{k}}">{{k}}</a>: {{v}} times</li>
-            {% endfor %}
-            </ul>
-        {% endif %} 
-        <br>
-        <p>
-         The URLs found on the web page {{source}} are:
-        </p>
-        <ul type="square">
+            <table border="1">
+            <tr> 
+                <th>Url</th>
+                <th>Count</th>
+            </tr>
             {% for url in urls%}
-            <li><a href="{{url}}">{{url}}</a></li>
+            <tr>
+                <td><a href="{{url[0]}}">{{url[0]}}</a></td>
+                <td>{{url[1]}}</td>
+            </tr>
             {% endfor %}
-        </ul>
-        {% else %}
-        <p>
-        No URLs were found on the webpage {{source}}, most likely due to
-        forbidden scraping on this website
-        </p>    
+            </table>
+            {%if pagination %}
+            {{ pagination.links }}
+            {{ pagination.info }}
+            {% endif %}                   
+            {% else %}
+            <p>
+            No URLs were found on the webpage {{source}}, most likely due to
+            forbidden scraping on this website
+            </p>    
         {% endif %}
     </div>
-    {% endblock %}
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html> 
+    <script>
+        function func() {
+            var jsource = {{top | tojson}}
+        }
+    </script>
+    </body>
+</html>

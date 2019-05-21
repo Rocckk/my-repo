@@ -9,4 +9,5 @@ db.sqlite3
 *.idea
 scrap_venv/
 creds.py
+venv_synergy/
 

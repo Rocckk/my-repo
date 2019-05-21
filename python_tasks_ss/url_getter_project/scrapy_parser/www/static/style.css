@@ -5,6 +5,8 @@ color: red;
 body {
 padding-left:100px;
 font-size: 1.2rem;
+padding-right:50px;
+padding-bottom: 50px;
 }
 
 input[src]{
@@ -26,4 +28,44 @@ margin-top: 40px;
 input{
 width:540px;
 font-size: 1rem;
+}
+
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
+}
+.pagination {
+
+    margin: 10px 0;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+
+    }
+    .pagination ul {
+    list-style-type: none;
+    }
+    .pagination ul li {
+         display: inline;
+         padding:10px;
+    }
+
+#top_result {
+    font-size: 1.1rem;
+}
+
+th {
+    text-align:center;
 }

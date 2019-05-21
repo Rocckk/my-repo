@@ -22,10 +22,13 @@ class FlaskDbConnector:
     execution
     self.source - str, the source URL which is checked against the db
     """
-    def __init__(self, source):
+    def __init__(self, source=None, limit=None, offset=None, top=None):
         self.host = 'localhost'
         self.logger = get_logger()
         self.source = source
+        self.limit = limit
+        self.offset = offset
+        self.top = top
 
     def __enter__(self):
         """
@@ -42,22 +45,33 @@ class FlaskDbConnector:
         self.connection = pymysql.connect(host=self.host, user=USER,
                                           password=PASSWORD, db=DB)
         self.cursor = self.connection.cursor()
+        return self
+
+    def handle_source(self):
         if self.source:
             self.trim_source()
             present = self.check_presence()
             if present:
-                links = self.get_links()
+                links = self.get_links(self.limit, self.offset)
+                raw_links = self.get_links()
                 if links:
-                    top = self.get_top_links(links)
-                    return (links, present, top)
+                    total = self.get_total()
+                    top, links_and_counts = self.get_top_links_counts(links,
+                                                                      raw_links)
+                    return (list(links_and_counts.items()), present, top,
+                            total)
                 else:
                     return 204
             elif script_loader.run(self.source):
                 self.restart_conn()
-                links = self.get_links()
+                links = self.get_links(self.limit, self.offset)
+                raw_links = self.get_links()
                 if links:
-                    top = self.get_top_links(links)
-                    return (links, present, top)
+                    total = self.get_total()
+                    top, links_and_counts = self.get_top_links_counts(links,
+                                                                      raw_links)
+                    return (list(links_and_counts.items()), present, top,
+                            total)
                 else:
                     return 204
             self.logger.warning("the scrapy_parser script did not run well!")
@@ -79,32 +93,67 @@ connector")
             return True
         return False
 
-    def get_links(self):
+    def get_links(self, limit=None, offset=None):
         """
         This method get the links found on the source URL from the db
         returns:
-        links, list, the list of links found in the db
+        links, list, the list of tuples containing links found in the db and 
+        their count
         """
-        if self.cursor.execute("select `urls`.`url` from `urls` join `urls_to_\
+        if limit or offset:
+            print(10*"===")
+            query = "select distinct `urls`.`url` from `urls` join `urls_to_\
+sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` on \
+`sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{}' \
+order by `urls`.`url` limit {} offset {}".format(self.source, limit, offset)
+            print(query)
+        else:
+            query = "select `urls`.`url` from `urls` join `urls_to_\
 sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` on \
 `sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{}'\
-".format(self.source)):
+order by `urls`.`url`".format(self.source)
+        if self.cursor.execute(query):
             links = []
             result = self.cursor.fetchall()
             for item in result:
                 links.append(item[0])
             return links
-        self.logger.info("no links were found in the db for the source URL {}\
+        self.logger.info("no links were found in the db for the source URL {} \
 because scraping on this page is likely forbidden by robots.txt file\
 ".format(self.source))
 
-    def get_top_links(self, links):
-        top_counts = {l: links.count(l) for l in links if links.count(l) > 1}
-        if top_counts:
-            max_value = max(top_counts.values())
-            top = {k: v for (k,v) in top_counts.items() if v == max_value}
-            return top
+    def get_top_links_counts(self, links, raw_links):
+        """
+        This method finds out which links are found on the scraped web page the
+        most times
+        params:
+        links - list of tuples: 1-st element - string, a link itself, 2-nd
+        element - int, the number of times it's found on the webpage
+        returns:
+        top - the list of links found the most times
+        """
+        counts = {l: raw_links.count(l) for l in links}
+        if self.cursor.execute("select `urls`.`url`, count(`urls_to_sources`.\
+`url_id`) from `urls` join `urls_to_sources` on `urls`.`id` = `urls_to_sources`\
+.`url_id` join `sources` on `sources`.`id` = `urls_to_sources`.`source_id` \
+where `sources`.`url` = '{0}' group by `urls`.`url` having count(`urls_to_\
+sources`.url_id) = (select count(urls_to_sources.url_id) from `urls` join \
+`urls_to_sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` \
+on `sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{0}'\
+ group by `urls`.`url` order by count(urls_to_sources.url_id) desc limit 1)\
+ ".format(self.source)):
+            top_results = self.cursor.fetchall()
+            top = {i[0]: i[1] for i in top_results}
+            return (top, counts)
 
+    def get_total(self):
+        if self.cursor.execute("select count(distinct `urls`.`url`) from `urls`\
+ join `urls_to_sources` on `urls`.`id` = `urls_to_sources`.`url_id` join \
+`sources` on `sources`.`id` = `urls_to_sources`.`source_id` where \
+`sources`.`url` = '{}'".format(self.source)):
+            total_count = self.cursor.fetchone()[0]
+            print('@@@', total_count)
+            return total_count
 
     def restart_conn(self):
         """
@@ -130,6 +179,22 @@ because scraping on this page is likely forbidden by robots.txt file\
             self.source = self.source[:fragment_start].strip(" /")
         else:
             self.source = self.source.strip(" /")
+
+    def get_top_total(self):
+        if self.cursor.execute("select urls.id, urls.url, count(urls_to_sources\
+.url_id) from urls join urls_to_sources on urls.id = urls_to_sources.url_id \
+group by urls.url, urls.id order by count(urls_to_sources.url_id) desc, \
+count(distinct(urls_to_sources.source_id)) desc limit {}".format(self.top)):
+            result = self.cursor.fetchall()
+            result_list = []
+            for i in result:
+                if self.cursor.execute("select sources.url, \
+count(urls_to_sources.url_id) from sources join urls_to_sources on \
+urls_to_sources.source_id = sources.id where urls_to_sources.url_id = {} group \
+by sources.url;".format(i[0])):
+                    occurences = self.cursor.fetchall()
+                    result_list.append((i[1], i[2], occurences))
+            return result_list
 
     def __exit__(self, type, value, traceback):
         """
