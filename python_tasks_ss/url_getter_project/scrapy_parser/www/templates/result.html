@@ -1,22 +1,56 @@
- <!doctype html>
+  <!doctype html>
 <html>
     <head>
         <title>URL getter project</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet", href="{{url_for('static', filename='style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("form button").click(function(){
+                    var numb = $('button:focus').val();
+                    $.get('/top' + numb, function(data){
+                        console.log("Data: " + data);
+                        $('#top_result').html(data);
+                    })
+                });
+            });
+        </script>
     </head>
-    <body onload="func()">
+    <body>
     <div class="index">
         <form method="post" action="{{ url_for('handle_form') }}">
             <input  placeholder="enter the URL of the web page you would like to get the links from here" required type="url", name="source">
             <input type="image" src="static/images/search.png">
          </form>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        Top links that have been processed so far:
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="top_result">
+                    </div>         
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div>
-        <br>
         {%if urls%}
             {% if present %}
+            <br>
             <p>
             This web page has already been scraped before and is already in the
             database.
@@ -25,32 +59,41 @@
             <p>
             This web page has just been scraped.
             </p>
-            {% endif %}
+        {% endif %}
             <div id="general_top">
-                <p>Total statistics:</p>
+                <p class="top">Total statistics:</p>
                 <form>
-                    <button formaction="{{ url_for('get_tops', number=100) }}" 
-                            formmethod="GET"
-                            formtarget="_blank">
+                    <button class="btn btn-primary"
+                            data-target="#ModalLong"
+                            data-toggle="modal"
+                            type="button"
+                            value="100"> 
                         Top 100
                     </button>
-                    <button formaction="{{ url_for('get_tops', number=50) }}" 
-                            formmethod="GET"
-                            formtarget="_blank">
+                    <button class="btn btn-primary"
+                            data-target="#ModalLong"
+                            data-toggle="modal"
+                            type="button"
+                            value="50"> 
                         Top 50
                     </button>
-                    <button formaction="{{ url_for('get_tops', number=20) }}" 
-                            formmethod="GET"
-                            formtarget="_blank">
+                    <button class="btn btn-primary"
+                            data-target="#ModalLong"
+                            data-toggle="modal"
+                            type="button"
+                            value="20">
                         Top 20
                     </button>
-                    <button formaction="{{ url_for('get_tops', number=10) }}" 
-                            formmethod="GET"
-                            formtarget="_blank">
+                    <button class="btn btn-primary"
+                            data-target="#ModalLong"
+                            data-toggle="modal"
+                            type="button"
+                            value="10">
                         Top 10
                     </button>
                 </form>
-            </div>      
+            </div>
+            <br>
             {% if top %}
                 <p class="top">
                 Top links on this webpage are:
@@ -61,8 +104,7 @@
                 {% endfor %}
                 </ul>
             {% endif %}
-            <p class="top">Total number of URLs found on this web page: {{total}}</p>
-            <br>
+            <p class="top">Total number of unique URLs found on this web page: {{total}}</p>
             <p>
             <a name="table_top">The URLs found on the web page {{source}} are:</a>
             </p>
@@ -89,13 +131,8 @@
             </p>    
         {% endif %}
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-        function func() {
-            var jsource = {{top | tojson}}
-        }
     </script>
     </body>
 </html>

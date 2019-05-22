@@ -7,6 +7,7 @@ padding-left:100px;
 font-size: 1.2rem;
 padding-right:50px;
 padding-bottom: 50px;
+padding-top:50px;
 }
 
 input[src]{
@@ -20,10 +21,6 @@ padding: 3px;
 background-color: aliceblue;
 }
 
-
-form {
-margin-top: 40px;
-}
 
 input{
 width:540px;
@@ -69,3 +66,19 @@ font-size: 1rem;
 th {
     text-align:center;
 }
+
+.modal-content {
+    width:120%;
+}
+
+#modal_table {
+    table-layout:fixed;
+    }
+    #modal_table td.modal_cell {
+        max-width: 335px;
+        min-width: 335px; 
+    }
+    .modal_cell a {
+        word-break: break-word;         
+    }
+

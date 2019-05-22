@@ -32,15 +32,9 @@ class FlaskDbConnector:
 
     def __enter__(self):
         """
-        This method checks is the source URl was provided, opens a connection
-        to the db, checks is the source URL in the db already and gets links
-        found on it;
-        if the source URL is not in the db - it runs a script which scrapes
-        URLs from it and returns them
+        This method opens a connection to the db and returns itself
         returns:
-        links, list, the list of links found on the source URL;
-        int - if nothing was found in the db, the number resembles the HTTP
-        response status code
+        self - the instance of the class itself
         """
         self.connection = pymysql.connect(host=self.host, user=USER,
                                           password=PASSWORD, db=DB)
@@ -48,6 +42,16 @@ class FlaskDbConnector:
         return self
 
     def handle_source(self):
+        """
+        This method checks is the source URl was provided, checks is the 
+        source URL in the db already and gets links found on it;
+        if the source URL is not in the db - it runs a script which scrapes
+        URLs from it and returns them
+        returns:
+        links, list, the list of links found on the source URL;
+        int - if nothing was found in the db, the number resembles the HTTP
+        response status code
+        """
         if self.source:
             self.trim_source()
             present = self.check_presence()
@@ -101,12 +105,10 @@ connector")
         their count
         """
         if limit or offset:
-            print(10*"===")
             query = "select distinct `urls`.`url` from `urls` join `urls_to_\
 sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` on \
 `sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{}' \
 order by `urls`.`url` limit {} offset {}".format(self.source, limit, offset)
-            print(query)
         else:
             query = "select `urls`.`url` from `urls` join `urls_to_\
 sources` on `urls`.`id` = `urls_to_sources`.`url_id` join `sources` on \
@@ -147,12 +149,17 @@ on `sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{0}'\
             return (top, counts)
 
     def get_total(self):
+        """
+        This method calculates home many URL records associated with the source
+        web page are there in the db
+        returns:
+        total_count - int, the number of URLs
+        """
         if self.cursor.execute("select count(distinct `urls`.`url`) from `urls`\
  join `urls_to_sources` on `urls`.`id` = `urls_to_sources`.`url_id` join \
 `sources` on `sources`.`id` = `urls_to_sources`.`source_id` where \
 `sources`.`url` = '{}'".format(self.source)):
             total_count = self.cursor.fetchone()[0]
-            print('@@@', total_count)
             return total_count
 
     def restart_conn(self):
@@ -181,6 +188,12 @@ on `sources`.`id` = `urls_to_sources`.`source_id` where `sources`.`url` = '{0}'\
             self.source = self.source.strip(" /")
 
     def get_top_total(self):
+        """
+        This method checks what are the top 100, 50, 20, 10 URLs in the db;
+        returns:
+        result_list, list of tuples, containing the url, number of times it 
+        was found totally and number of times it was found on each website;
+        """
         if self.cursor.execute("select urls.id, urls.url, count(urls_to_sources\
 .url_id) from urls join urls_to_sources on urls.id = urls_to_sources.url_id \
 group by urls.url, urls.id order by count(urls_to_sources.url_id) desc, \

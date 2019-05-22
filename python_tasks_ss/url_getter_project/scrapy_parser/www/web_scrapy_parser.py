@@ -25,19 +25,21 @@ def handle_form():
                 if isinstance(value, int):
                     if value == 204:
                         return render_template('result.html', source=source)
-                    elif value < 500:
-                        return "Client error occurred", value
-                    elif value >= 500:
-                        return "Server error occurred", value
+                elif value < 500:
+                    return "Client error occurred", value
+                elif value >= 500:
+                    return "Server error occurred", value
             pagination = Pagination(page=1, per_page=25, total=total,
-                                        record_name="urls", format_total=True,
-                                        format_number=True,
-                                        href="urls?page={0}&num={1}&source={2}#table_top".format('{0}',total, source))
+                                    record_name="urls", format_total=True,
+                                    format_number=True,
+                                    href="urls?page={0}&num={1}&source={2}\
+#table_top".format('{0}',total, source))
             return render_template('result.html', source=source,
                                                       urls=urls_counts,
                                                       present=present, top=top,
                                                       total=total,
-                                                      pagination=pagination)
+                                                      pagination=pagination,
+                                                      )
 
     elif request.method == "GET" and request.args:
         source = request.args['source']
@@ -57,10 +59,11 @@ def handle_form():
                         return "Client error occurred", value
                     elif value >= 500:
                         return "Server error occurred", value
-            pagination = Pagination(page=page_num, per_page=per_page, total=int(total_num),
-                                        record_name="urls", format_total=True,
-                                        format_number=True,
-                                        href="urls?page={0}&num={1}&source={2}#table_top".format('{0}',total_num, source))
+            pagination = Pagination(page=page_num, per_page=per_page,
+                                    total=int(total_num), record_name="urls",
+                                    format_total=True, format_number=True,
+                                    href="urls?page={0}&num={1}&source={2}\
+#table_top".format('{0}',total_num, source))
             return render_template('result.html', source=source,
                                                       urls=urls_counts,
                                                       present=present, top=top,
