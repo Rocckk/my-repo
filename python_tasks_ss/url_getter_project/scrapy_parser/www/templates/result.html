@@ -6,22 +6,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet", href="{{url_for('static', filename='style.css')}}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <script>
             $(document).ready(function(){
                 $("form button").click(function(){
                     var numb = $('button:focus').val();
                     $.get('/top' + numb, function(data){
                         console.log("Data: " + data);
-                        $('#top_result').html(data);
+                         $('#top_result').html(data);
                     })
                 });
             });
+        </script>
+        <script>
+            $(document).ready(function(){
+                $("input").keyup(function(){
+                    var enter = $('input').val();
+                    $.post('/suggest', {'entered': enter}, function(data){
+                        var js_data = $.parseJSON(data);
+                        if (js_data.length != 0){
+                            var arr_data = JSON.parse(data);
+                            $('input').autocomplete({
+                                source: arr_data
+                            })
+                        } 
+                    })
+                })
+            })
         </script>
     </head>
     <body>
     <div class="index">
         <form method="post" action="{{ url_for('handle_form') }}">
-            <input  placeholder="enter the URL of the web page you would like to get the links from here" required type="url", name="source">
+            <input  placeholder="enter the URL of the web page you would like to
+            get the links from here" required type="url", name="source"
+                                                          autocomplete="off"
+                                                          id="autocompl">
             <input type="image" src="static/images/search.png">
          </form>
     </div>

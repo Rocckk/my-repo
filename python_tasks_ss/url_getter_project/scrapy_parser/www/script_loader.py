@@ -18,8 +18,6 @@ def run(source):
     '''
     pwd = os.path.dirname(__file__)
     os.chdir(pwd)
-    test = subprocess.run("whoami", shell=True, stdout=subprocess.PIPE)
-    print(test.stdout)
     proc = subprocess.run("../bin/scrapy_parser.sh '{}'".format(source),
                           shell=True)
     if proc.returncode == 0:

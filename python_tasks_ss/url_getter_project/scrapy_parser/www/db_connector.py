@@ -209,6 +209,13 @@ by sources.url;".format(i[0])):
                     result_list.append((i[1], i[2], occurences))
             return result_list
 
+    def suggest_source(self):
+        if self.cursor.execute("select `url` from `sources` where `url` like \
+'{}%' order by `url`".format(self.source)):
+            result = self.cursor.fetchall()
+            result_list = [i[0] for i in result]
+            return result_list
+
     def __exit__(self, type, value, traceback):
         """
         This method is the standard exit method of a context manager which

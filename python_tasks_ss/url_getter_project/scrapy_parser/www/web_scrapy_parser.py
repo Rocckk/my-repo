@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request, redirect, url_for
 from flask_paginate import Pagination
 from db_connector import FlaskDbConnector
@@ -76,3 +77,13 @@ def get_tops(number):
     with FlaskDbConnector(top=number) as db_conn:
         result = db_conn.get_top_total()
     return render_template('top.html', result=result)
+
+@app.route('/suggest', methods=['POST'])
+def autocomplete():
+    source_part = request.form['entered']
+    with FlaskDbConnector(source_part) as db_conn:
+        suggestions = db_conn.suggest_source()
+        print(suggestions)
+    if suggestions:
+        return json.dumps(suggestions)
+    return json.dumps([])

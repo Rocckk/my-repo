@@ -8,9 +8,9 @@
             {% for rec in result %}
             <tr>
                 <td>{{loop.index}}</td>
-                <td class="modal_cell"><a href="{{rec[0]}}">{{rec[0]}}</a></td>
+                <td class="modal_cell_1"><a href="{{rec[0]}}">{{rec[0]}}</a></td>
                 <td>{{rec[1]}}</td>
-                <td>
+                <td class="modal_cell_2">
                     {% for i in rec[2] %}
                     <p><a href="{{i[0]}}">{{i[0]}}</a> - {{i[1]}} time(s)</p>
                     {% endfor %}
