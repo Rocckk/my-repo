@@ -83,13 +83,8 @@ def autocomplete():
     source_part = request.form['entered']
     with FlaskDbConnector(source_part) as db_conn:
         suggestions = db_conn.suggest_source()
-        print(suggestions)
     if suggestions:
         return json.dumps(suggestions)
     return json.dumps([])
 
-@app.route('/loaderio-f13efd02e5ea34525c3c97794a18832a/', methods=['POST', 'GET'])
-def token():
-    print('loaderio-f13efd02e5ea34525c3c97794a18832a/')
-    return send_file('token.txt')
 

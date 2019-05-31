@@ -2,6 +2,7 @@
 
 import pymysql
 import sys
+import os
 sys.path.append("/usr/home/itymos/git_thing/my-repo/python_tasks_ss/url_\
 getter_project/scrapy_parser/")
 from src.scrapy_parser.creds import USER, PASSWORD, DB
@@ -39,6 +40,7 @@ class FlaskDbConnector:
         self.connection = pymysql.connect(host=self.host, user=USER,
                                           password=PASSWORD, db=DB)
         self.cursor = self.connection.cursor()
+        self.logger.info("opened db connection by {}".format(str(os.getpid())))
         return self
 
     def handle_source(self):
