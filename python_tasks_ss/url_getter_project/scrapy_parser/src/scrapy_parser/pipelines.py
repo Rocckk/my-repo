@@ -175,9 +175,17 @@ problems with the data format'.format(url))
         """
         try:
             with self.connection.cursor() as cursor:
-                if cursor.execute("insert into `urls_to_sources` (`url_id`, \
-        `source_id`) values ((select `id` from `urls` where `url` = '{}'), \
+                cursor.execute("select `id` from `sources` where `url` = '{}'".format(source))
+                source_id = cursor.fetchone()[0]
+                cursor.execute("select `id` from `urls` where `url` = '{}'".format(url))
+                url_id = cursor.fetchone()[0]
+                '''
+                    if cursor.execute("insert into `urls_to_sources` (`url_id`, \
+`source_id`) values ((select `id` from `urls` where `url` = '{}'), \
 (select `id` from `sources` where `url` = '{}'))".format(url, source)):
+                '''
+                if cursor.execute("insert into `urls_to_sources` (`url_id`, \
+`source_id`) values ({}, {})".format(url_id, source_id)):
                     self.connection.commit()
                 else:
                     self.logger.warning('insertion into table `urls_to_sources`\

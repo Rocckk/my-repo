@@ -1,5 +1,5 @@
 import json
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 from flask_paginate import Pagination
 from db_connector import FlaskDbConnector
 
@@ -83,7 +83,8 @@ def autocomplete():
     source_part = request.form['entered']
     with FlaskDbConnector(source_part) as db_conn:
         suggestions = db_conn.suggest_source()
-        print(suggestions)
     if suggestions:
         return json.dumps(suggestions)
     return json.dumps([])
+
+
