@@ -1,0 +1,12 @@
+{
+"keywords": [
+"python",
+"vagrant",
+"django"
+],
+"proxies": [
+"http://80.255.91.38:43360",
+"http://118.97.235.234:8080"
+],
+"type": "Repositories"
+}
