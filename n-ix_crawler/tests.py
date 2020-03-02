@@ -8,9 +8,8 @@ from github_crawler import get_extra, get_input, get_urls, main, parse_repo, wri
 class TestCrawlerWikis(unittest.TestCase):
     def setUp(self):
         self.keywords = ["python", "redis", "django"]
-        self.proxies = {'https': 'https://81.33.4.214:61711', 'http': 'http://185.176.32.160:3128'}
         self.obj_type = "Wikis"
-        self.urls = get_urls(self.keywords, self.proxies, self.obj_type)
+        self.urls = get_urls(self.keywords, self.obj_type)
         self.result_wikis = [
             {
                 "url": "https://github.com/balakrishnanm/mybook/wiki/Python-Django"
@@ -37,11 +36,11 @@ class TestCrawlerWikis(unittest.TestCase):
             self.assertIsInstance(self.urls[0], dict)
 
     def test_get_urls_return_member_type_keys_wikis(self):
-        if len(self.urls) > 0:
+        if self.urls:
             self.assertIn('url', self.urls[0])
 
     def test_get_urls(self):
-        urls = get_urls(self.keywords, self.proxies, self.obj_type)
+        urls = get_urls(self.keywords, self.obj_type)
         self.assertTrue(urls)
 
     def test_write_results(self):
@@ -69,9 +68,8 @@ class TestCrawlerWikis(unittest.TestCase):
 class TestCrawlerRepos(unittest.TestCase):
     def setUp(self):
         self.keywords = ["python", "redis", "django"]
-        self.proxies = {'https': 'https://81.33.4.214:61711', 'http': 'http://185.176.32.160:3128'}
         self.obj_type = "Repositories"
-        self.urls = get_urls(self.keywords, self.proxies, self.obj_type)
+        self.urls = get_urls(self.keywords, self.obj_type)
         self.result_repos = [
             {
                 "url": "https://github.com/fabiocaccamo/django-freeze",
@@ -122,52 +120,52 @@ class TestCrawlerRepos(unittest.TestCase):
 
     def test_parse_repo_result_type(self):
         if self.urls:
-            result = parse_repo(self.urls[0].get('url'), self.proxies)
+            result = parse_repo(self.urls[0].get('url'))
             self.assertIsInstance(result, dict)
 
     def test_parse_repo_result_has_key_urls(self):
         if self.urls:
-            result = parse_repo(self.urls[0].get('url'), self.proxies)
+            result = parse_repo(self.urls[0].get('url'))
             self.assertIn('url', result)
 
     def test_parse_repo_result_has_key_extra(self):
         if self.urls:
-            result = parse_repo(self.urls[0].get('url'), self.proxies)
+            result = parse_repo(self.urls[0].get('url'))
             self.assertIn('extra', result)
 
     def test_parse_repo_result_extra_has_key_owner(self):
         if self.urls:
-            result = parse_repo(self.urls[0].get('url'), self.proxies)
+            result = parse_repo(self.urls[0].get('url'))
             self.assertIn('owner', result.get('extra'))
 
     def test_parse_repo_result_extra_has_key_language_stats(self):
         if self.urls:
-            result = parse_repo(self.urls[0].get('url'), self.proxies)
+            result = parse_repo(self.urls[0].get('url'))
             self.assertIn('language_stats', result.get('extra'))
 
     def test_get_extra_return_type(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         self.assertIsInstance(results, list)
 
     def test_get_extra_return_member_type(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         if len(results) > 0:
             self.assertIsInstance(results[0], dict)
 
     def test_get_extra_result_has_key_urls(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         self.assertIn('url', results[0])
 
     def test_get_extra_result_has_key_extra(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         self.assertIn('extra', results[0])
 
     def test_get_extra_result_extra_has_key_owner(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         self.assertIn('owner', results[0].get('extra'))
 
     def test_get_extra_result_extra_has_key_language_stats(self):
-        results = get_extra(self.urls, 'Repositories', self.proxies)
+        results = get_extra(self.urls, 'Repositories')
         self.assertIn('language_stats', results[0].get('extra'))
 
     def test_write_results(self):
@@ -180,9 +178,8 @@ class TestCrawlerRepos(unittest.TestCase):
 class TestCrawlerIssues(unittest.TestCase):
     def setUp(self):
         self.keywords = ["python", "redis", "django"]
-        self.proxies = {'https': 'https://81.33.4.214:61711', 'http': 'http://185.176.32.160:3128'}
         self.obj_type = "Issues"
-        self.urls = get_urls(self.keywords, self.proxies, self.obj_type)
+        self.urls = get_urls(self.keywords, self.obj_type)
         self.result_issues = [
             {"url": "https://github.com/andreagrandi/covid-api/issues/1"},
             {"url": "https://github.com/Prefeitura-Comunica/thread/issues/3"},
@@ -194,11 +191,11 @@ class TestCrawlerIssues(unittest.TestCase):
         self.assertIsInstance(self.urls, list)
 
     def test_get_url_member_type_issues(self):
-        if len(self.urls) > 0:
+        if self.urls:
             self.assertIsInstance(self.urls[0], dict)
 
     def test_get_url_return_member_type_keys_issues(self):
-        if len(self.urls) > 0:
+        if self.urls:
             self.assertIn('url', self.urls[0])
 
     def test_write_results(self):

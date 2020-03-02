@@ -1,12 +1,12 @@
 {
 "keywords": [
-"python",
-"vagrant",
-"django"
+"java",
+"requests",
+"scrapy"
 ],
 "proxies": [
-"http://80.255.91.38:43360",
-"http://118.97.235.234:8080"
+"128.199.72.53:44321",
+"128.199.79.109:44321"
 ],
-"type": "Repositories"
+"type": "Wikis"
 }

@@ -9,7 +9,7 @@ The value of 'keywords' key should be an array of 3 keywords to search for on Gi
 
 The value of 'proxies' key should be an array of 2 proxy server's URLs with their schemas
 included:
-"proxies": ["http://80.255.91.38:43360", "https://118.97.235.234:8080"]
+"proxies": ["80.255.91.38:43360", "118.97.235.234:8080"]
 
 The value of 'type' key should be an string with one of the following 3 values: 'Repositories',
 'Issues', 'Wikis', which indicates search sections of Github to search through:
@@ -60,13 +60,12 @@ def get_input(content):
     Github section to search for.
     """
     obj = json.loads(content)
-    proxies = {i.split('://')[0]: i for i in obj.get('proxies')}
     keywords = obj.get('keywords')
     obj_type = obj.get('type')
-    return proxies, keywords, obj_type
+    return keywords, obj_type
 
 
-def parse_repo(url, proxies):
+def parse_repo(url):
     """
     This function sends requests to repo URL, parses it and extracts necessary data
     :param url: string, the URL of Github repo
@@ -76,7 +75,7 @@ def parse_repo(url, proxies):
     :return: dict, dict containing the URL of the page, the owner of the repo and repo's language
     statistics
     """
-    r = requests.get(url, proxies=proxies)
+    r = requests.get(url)
     result_html = fromstring(r.text)
     langs = [
         i.get('aria-label') for i in result_html.cssselect(
@@ -94,11 +93,11 @@ def parse_repo(url, proxies):
     }
 
 
-def get_urls(keywords, proxies, obj_type):
+def get_urls(keywords, obj_type):
     """
     This function retrieves URLs matching search keywords passsed as the input
     :param keywords: list, the list of keywords to search for
-    :param proxies: dict, dict where key is the schema and value is the actual URL of a proxy
+    :param proxies: list, list of dicts where key is the schema and value is the actual URL of a proxy
     {'https': 'https://81.33.4.214:61711', 'http': 'http://185.176.32.160:3128'}
     :param obj_type: string, the type of Github section to search through
     :return: list, list of dictionaries where key is always 'url' and value is the URL of the page
@@ -115,7 +114,7 @@ ref=simplesearch'.format(keywords[0], keywords[1], keywords[2])
         github_url = 'https://github.com/search?q={}+{}+{}&type=Wikis'.format(
             keywords[0], keywords[1], keywords[2]
         )
-    r = requests.get(url=github_url, proxies=proxies)
+    r = requests.get(url=github_url)
     result_html = fromstring(r.text)
     urls = [
         {'url': 'https://github.com' + i.get('href')} for i in result_html.cssselect(
@@ -125,13 +124,13 @@ ref=simplesearch'.format(keywords[0], keywords[1], keywords[2])
     return urls
 
 
-def get_extra(urls, obj_type, proxies):
+def get_extra(urls, obj_type):
     """
     This function concurrently sends requests to Github repo URLs passed as its parameter and
     returns the structured result containing the URL, owner and language stats for this URL
     :param urls: list, the array of dicts of URLs of Github repos
     :param obj_type: string, the type of Github section to search through
-    :param proxies: dict, dict where key is the schema and value is the actual URL of a proxy
+    :param proxies: list, list of dicts here key is the schema and value is the actual URL of a proxy
     {'https': 'https://81.33.4.214:61711', 'http': 'http://185.176.32.160:3128'}
     :return: list, the list of dicts containing the URL of the page, the owner of the repo and
     repo's language statistics
@@ -139,7 +138,7 @@ def get_extra(urls, obj_type, proxies):
     if obj_type == OBJECT_TYPES[0]:
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(urls)) as executor:
             future_to_url = {
-                executor.submit(parse_repo, url.get('url'), proxies): url.get('url') for url in urls
+                executor.submit(parse_repo, url.get('url')): url.get('url') for url in urls
             }
             results = [future.result() for future in concurrent.futures.as_completed(future_to_url)]
             return results
@@ -152,9 +151,9 @@ def write_results(results):
 
 def main():
     content = sys.stdin.read()
-    proxies, keywords, obj_type = get_input(content)
-    urls = get_urls(keywords, proxies, obj_type)
-    results = get_extra(urls, obj_type, proxies)
+    keywords, obj_type = get_input(content)
+    urls = get_urls(keywords, obj_type)
+    results = get_extra(urls, obj_type)
     if results:
         write_results(results)
     else:

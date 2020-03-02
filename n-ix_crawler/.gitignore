@@ -1,0 +1,12 @@
+# coverage files
+.coverage
+
+#  Cache files
+__pycache__/
+*.pyc
+*.py[cod]
+
+#  log files
+*.log
+
+result.json
