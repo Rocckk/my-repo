@@ -50,10 +50,20 @@ trans_test = tfidf_transformer.fit_transform(testing_vectors)
 classifier = tree.DecisionTreeClassifier()
 classifier.fit(trans_train, labels)
 predictions = classifier.predict(trans_test)
+probability = classifier.predict_proba(trans_test)
+import csv
 
-with open('result_tfid.txt', 'w') as f:
+with open('result_tfid.csv', 'w', newline='') as f:
+    fieldnames = ['hash', 'prediction', 'fast_probability', 'slow_probability']
+    writer = csv.DictWriter(f, fieldnames=fieldnames)
+    writer.writeheader()
     for pred in enumerate(predictions):
-        f.write('{}: {}\n'.format(med_test.hash[pred[0]], pred[1]))
+        # f.write('{}: {}\n'.format(med_test.hash[pred[0]], pred[1]))
+        writer.writerow(
+            {fieldnames[0]: med_test.hash[pred[0]], fieldnames[1]: pred[1],
+             fieldnames[2]: probability[pred[0]][0], fieldnames[3]: probability[pred[0]][1]
+             }
+        )
 
 
 
